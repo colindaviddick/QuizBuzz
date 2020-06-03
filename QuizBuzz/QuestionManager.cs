@@ -42,76 +42,75 @@ namespace QuizBuzz
                 question.AddQuestion(questiontext, correctanswer, incorrectanswer1, incorrectanswer2, incorrectanswer3, category);
                 QuestionsPool.Add(question);
             }
-
             return QuestionsPool;
         }
 
-        //public void RemoveQuestionFromPool(int currentQuestion)
-        //{
-        //    questionPool.RemoveAt(currentQuestion);
-        //}
+        public void RemoveQuestionFromPool(int currentQuestion)
+        {
+            questionPool.RemoveAt(currentQuestion);
+        }
 
-        //public void DisplayQuestionAndRandomiseAnswerLocation(int currentQuestion)
-        //{
-        //    QuestionText.Text = questionPool[currentQuestion].QuestionString;
-        //    Random randomAnswerPos = new Random();
-            
-        //    int correctAnswerPos = randomAnswerPos.Next(1, 4);
+        public void DisplayQuestionAndRandomiseAnswerLocation(int currentQuestion)
+        {
+            QuestionText.Text = questionPool[currentQuestion].QuestionString;
+            Random randomAnswerPos = new Random();
+          
+            int correctAnswerPos = randomAnswerPos.Next(1, 4);
 
-        //    switch (correctAnswerPos)
-        //    {
+            switch (correctAnswerPos)
+            {
 
-        //        case 1:
-        //            AnswerButton1.Content = questionPool[currentQuestion].CorrectAnswer;
-        //            AnswerButton2.Content = questionPool[currentQuestion].IncorrectAnswer1;
-        //            AnswerButton3.Content = questionPool[currentQuestion].IncorrectAnswer2;
-        //            AnswerButton4.Content = questionPool[currentQuestion].IncorrectAnswer3;
-        //            AnswerButton1.Click += Correct;
-        //            AnswerButton2.Click += Incorrect;
-        //            AnswerButton3.Click += Incorrect;
-        //            AnswerButton4.Click += Incorrect;
-        //            break;
-        //        case 2:
-        //            AnswerButton1.Content = questionPool[currentQuestion].IncorrectAnswer3;
-        //            AnswerButton2.Content = questionPool[currentQuestion].CorrectAnswer;
-        //            AnswerButton3.Content = questionPool[currentQuestion].IncorrectAnswer1;
-        //            AnswerButton4.Content = questionPool[currentQuestion].IncorrectAnswer2;
-        //            AnswerButton1.Click += Incorrect;
-        //            AnswerButton2.Click += Correct;
-        //            AnswerButton3.Click += Incorrect;
-        //            AnswerButton4.Click += Incorrect;
-        //            break;
-        //        case 3:
-        //            AnswerButton1.Content = questionPool[currentQuestion].IncorrectAnswer2;
-        //            AnswerButton2.Content = questionPool[currentQuestion].IncorrectAnswer3;
-        //            AnswerButton3.Content = questionPool[currentQuestion].CorrectAnswer;
-        //            AnswerButton4.Content = questionPool[currentQuestion].IncorrectAnswer1;
-        //            AnswerButton1.Click += Incorrect;
-        //            AnswerButton2.Click += Incorrect;
-        //            AnswerButton3.Click += Correct;
-        //            AnswerButton4.Click += Incorrect;
-        //            break;
-        //        case 4:
-        //            AnswerButton1.Content = questionPool[currentQuestion].IncorrectAnswer1;
-        //            AnswerButton2.Content = questionPool[currentQuestion].IncorrectAnswer2;
-        //            AnswerButton3.Content = questionPool[currentQuestion].IncorrectAnswer3;
-        //            AnswerButton4.Content = questionPool[currentQuestion].CorrectAnswer;
-        //            AnswerButton1.Click -= Incorrect;
-        //            AnswerButton2.Click += Incorrect;
-        //            AnswerButton3.Click += Incorrect;
-        //            AnswerButton4.Click += Correct;
-        //            break;
-        //        default:
-        //            AnswerButton1.Content = questionPool[currentQuestion].CorrectAnswer;
-        //            AnswerButton2.Content = questionPool[currentQuestion].IncorrectAnswer1;
-        //            AnswerButton3.Content = questionPool[currentQuestion].IncorrectAnswer2;
-        //            AnswerButton4.Content = questionPool[currentQuestion].IncorrectAnswer3;
-        //            AnswerButton1.Click += Correct;
-        //            AnswerButton2.Click += Incorrect;
-        //            AnswerButton3.Click += Incorrect;
-        //            AnswerButton4.Click += Incorrect;
-        //            break;
-        //    }
-        //}
+                case 1:
+                    AnswerButton1.Content = questionPool[currentQuestion].CorrectAnswer;
+                    AnswerButton2.Content = questionPool[currentQuestion].IncorrectAnswer1;
+                    AnswerButton3.Content = questionPool[currentQuestion].IncorrectAnswer2;
+                    AnswerButton4.Content = questionPool[currentQuestion].IncorrectAnswer3;
+                    AnswerButton1.Click += Correct;
+                    AnswerButton2.Click += Incorrect;
+                    AnswerButton3.Click += Incorrect;
+                    AnswerButton4.Click += Incorrect;
+                    break;
+                case 2:
+                    AnswerButton1.Content = questionPool[currentQuestion].IncorrectAnswer3;
+                    AnswerButton2.Content = questionPool[currentQuestion].CorrectAnswer;
+                    AnswerButton3.Content = questionPool[currentQuestion].IncorrectAnswer1;
+                    AnswerButton4.Content = questionPool[currentQuestion].IncorrectAnswer2;
+                    AnswerButton1.Click += Incorrect;
+                    AnswerButton2.Click += Correct;
+                    AnswerButton3.Click += Incorrect;
+                    AnswerButton4.Click += Incorrect;
+                    break;
+                case 3:
+                    AnswerButton1.Content = questionPool[currentQuestion].IncorrectAnswer2;
+                    AnswerButton2.Content = questionPool[currentQuestion].IncorrectAnswer3;
+                    AnswerButton3.Content = questionPool[currentQuestion].CorrectAnswer;
+                    AnswerButton4.Content = questionPool[currentQuestion].IncorrectAnswer1;
+                    AnswerButton1.Click += Incorrect;
+                    AnswerButton2.Click += Incorrect;
+                    AnswerButton3.Click += Correct;
+                    AnswerButton4.Click += Incorrect;
+                    break;
+                case 4:
+                    AnswerButton1.Content = questionPool[currentQuestion].IncorrectAnswer1;
+                    AnswerButton2.Content = questionPool[currentQuestion].IncorrectAnswer2;
+                    AnswerButton3.Content = questionPool[currentQuestion].IncorrectAnswer3;
+                    AnswerButton4.Content = questionPool[currentQuestion].CorrectAnswer;
+                    AnswerButton1.Click -= Incorrect;
+                    AnswerButton2.Click += Incorrect;
+                    AnswerButton3.Click += Incorrect;
+                    AnswerButton4.Click += Correct;
+                    break;
+                default:
+                    AnswerButton1.Content = questionPool[currentQuestion].CorrectAnswer;
+                    AnswerButton2.Content = questionPool[currentQuestion].IncorrectAnswer1;
+                    AnswerButton3.Content = questionPool[currentQuestion].IncorrectAnswer2;
+                    AnswerButton4.Content = questionPool[currentQuestion].IncorrectAnswer3;
+                    AnswerButton1.Click += Correct;
+                    AnswerButton2.Click += Incorrect;
+                    AnswerButton3.Click += Incorrect;
+                    AnswerButton4.Click += Incorrect;
+                    break;
+            }
+        }
     }
 }
