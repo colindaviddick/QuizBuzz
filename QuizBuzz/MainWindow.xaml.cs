@@ -20,13 +20,13 @@ namespace QuizBuzz
     /// </summary>
     public partial class MainWindow : Window
     {
-        QuestionPoolManager questionManager = new QuestionPoolManager();
-        public List<Question> questionsPool = new List<Question>();
+        public List<Question> questionPool = new List<Question>();
+        public QuestionManager questionManager = new QuestionManager();
         public MainWindow()
         {
             InitializeComponent();
-            questionManager.LoadQuestionsToList(questionsPool);
-            questionManager.DisplayQuestionAndRandomiseAnswerLocation(1);
+            questionManager.LoadQuestionsToList(questionPool);
+            //questionManager.DisplayQuestionAndRandomiseAnswerLocation(1);
         }
 
         public void Correct(object sender, RoutedEventArgs e)

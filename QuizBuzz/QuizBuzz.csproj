@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Question.cs" />
-    <Compile Include="QuestionPoolManager.cs" />
+    <Compile Include="QuestionManager.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\hex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Questions.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
