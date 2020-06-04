@@ -22,13 +22,10 @@ namespace QuizBuzz
     {
         public QuestionManager questionManager = new QuestionManager();
         public List<Question> questionPool = new List<Question>();
-        public Question q1 = new Question();
         public MainWindow()
         {
             InitializeComponent();
-            q1.AddQuestion("What is wrong with my program?", "You suck", "You're awesome at programming", "You're awesome at programming", "You're awesome at programming", "Can't do the basics");
-            questionPool.Add(q1);
-            MessageBox.Show(questionPool[0].CorrectAnswer);
+            
             //questionManager.LoadQuestionsToList(questionPool);
             //questionManager.DisplayQuestionAndRandomiseAnswerLocation(1);
         }
