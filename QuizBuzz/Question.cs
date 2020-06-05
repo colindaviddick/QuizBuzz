@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuizBuzz
 {
-    public class Question : MainWindow
+    public class Question
     {
         public string QuestionString { get; set; }
         public string CorrectAnswer { get; set; }

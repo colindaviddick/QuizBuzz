@@ -65,14 +65,14 @@
 
         <!--TIMER-->
         <Border Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="150" Height="80" Style="{StaticResource UI}">
-            <TextBlock x:Name="lblClockTime" Foreground="BlanchedAlmond" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">15s</TextBlock>
+            <TextBlock x:Name="scoreDisplay" Foreground="BlanchedAlmond" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">0</TextBlock>
         </Border>
 
         <!--GAME MENU-->
         <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="150" Style="{StaticResource UI}">
             <StackPanel x:Name="GameMenu">
-                <Button Style="{StaticResource MenuButton}">New Game</Button>
-                <Button Style="{StaticResource MenuButton}">Options</Button>
+                <Button Style="{StaticResource MenuButton}" Click="NewGame">New Game(Load Questions)</Button>
+                <Button Style="{StaticResource MenuButton}" Click="DebugNextQuestion">Next Question</Button>
                 <Button Style="{StaticResource MenuButton}">Scores</Button>
                 <Button Style="{StaticResource MenuButton}">About</Button>
                 <Button Style="{StaticResource MenuButton}">Exit</Button>
