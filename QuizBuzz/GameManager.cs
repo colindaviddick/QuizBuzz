@@ -10,5 +10,7 @@ namespace QuizBuzz
     {
         public int Score { get; set; }
         public string Category { get; set; }
+        public int NumberOfGameQuestions { get; set; }
+        public bool PlaySounds { get; set; }
     }
 }

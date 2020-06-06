@@ -42,6 +42,8 @@ namespace QuizBuzz
                 question.AddQuestion(questiontext, correctanswer, incorrectanswer1, incorrectanswer2, incorrectanswer3, category);
                 qPool.Add(question);
             }
+            
+
             return qPool;
         }
     }

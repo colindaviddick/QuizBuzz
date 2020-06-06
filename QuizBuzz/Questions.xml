@@ -1305,5 +1305,622 @@
     <IncorrectAnswer3>Konichiwa</IncorrectAnswer3>
     <Category>General Knowledge</Category>
   </Module>
+  <Module>
+    <Question>What island do lemurs come from?</Question>
+    <CorrectAnswer>Madagascar</CorrectAnswer>
+    <IncorrectAnswer1>Tasmania</IncorrectAnswer1>
+    <IncorrectAnswer2>Galapogos</IncorrectAnswer2>
+    <IncorrectAnswer3>Jamaica</IncorrectAnswer3>
+    <Category>General Knowledge, Natural World, Geography</Category>
+  </Module>
+  <Module>
+    <Question>Who founded Facebook?</Question>
+    <CorrectAnswer>Mark Zuckerberg</CorrectAnswer>
+    <IncorrectAnswer1>Steve Jobs</IncorrectAnswer1>
+    <IncorrectAnswer2>Bill Gates</IncorrectAnswer2>
+    <IncorrectAnswer3>Steve Wozniak</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>When Jack fell down, what did he break?</Question>
+    <CorrectAnswer>His Crown</CorrectAnswer>
+    <IncorrectAnswer1>Records</IncorrectAnswer1>
+    <IncorrectAnswer2>A Leg</IncorrectAnswer2>
+    <IncorrectAnswer3>Jill</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What singer is the subject of the movie "Walk the Line"?</Question>
+    <CorrectAnswer>Johnny Cash</CorrectAnswer>
+    <IncorrectAnswer1>Ray Charles</IncorrectAnswer1>
+    <IncorrectAnswer2>Elvis</IncorrectAnswer2>
+    <IncorrectAnswer3>James Brown</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>What was the Soviet equivalent of the CIA?</Question>
+    <CorrectAnswer>KGB</CorrectAnswer>
+    <IncorrectAnswer1>FBI</IncorrectAnswer1>
+    <IncorrectAnswer2>MI5</IncorrectAnswer2>
+    <IncorrectAnswer3>JIO</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the largest island in the Caribbean Sea?</Question>
+    <CorrectAnswer>Cuba</CorrectAnswer>
+    <IncorrectAnswer1>Jamaica</IncorrectAnswer1>
+    <IncorrectAnswer2>Puerto Rico</IncorrectAnswer2>
+    <IncorrectAnswer3>Hispaniola</IncorrectAnswer3>
+    <Category>General Knowledge, Geography</Category>
+  </Module>
+  <Module>
+    <Question>Who was the first woman to win a Nobel Prize?</Question>
+    <CorrectAnswer>Marie Curie</CorrectAnswer>
+    <IncorrectAnswer1>Florence Nightingale</IncorrectAnswer1>
+    <IncorrectAnswer2>Mother Teresa</IncorrectAnswer2>
+    <IncorrectAnswer3>Dorothy Hodgkin</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the largest species of lizard?</Question>
+    <CorrectAnswer>Komodo Dragon</CorrectAnswer>
+    <IncorrectAnswer1>Gila Monster</IncorrectAnswer1>
+    <IncorrectAnswer2>Giant Tegu</IncorrectAnswer2>
+    <IncorrectAnswer3>Chameleon</IncorrectAnswer3>
+    <Category>General Knowledge, Natural World</Category>
+  </Module>
+  <Module>
+    <Question>What did the Normans conquer in 1066?</Question>
+    <CorrectAnswer>England</CorrectAnswer>
+    <IncorrectAnswer1>France</IncorrectAnswer1>
+    <IncorrectAnswer2>Germany</IncorrectAnswer2>
+    <IncorrectAnswer3>Spain</IncorrectAnswer3>
+    <Category>General Knowledge, History, Geography</Category>
+  </Module>
+  <Module>
+    <Question>What is the 2nd book of Bible?</Question>
+    <CorrectAnswer>Exodus</CorrectAnswer>
+    <IncorrectAnswer1>Leviticus</IncorrectAnswer1>
+    <IncorrectAnswer2>Deuteronomy</IncorrectAnswer2>
+    <IncorrectAnswer3>Psalms</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What, according to a supposed African proverb, does it take a village to do?</Question>
+    <CorrectAnswer>Raise a Child</CorrectAnswer>
+    <IncorrectAnswer1>Catch a Criminal</IncorrectAnswer1>
+    <IncorrectAnswer2>Throw a Party</IncorrectAnswer2>
+    <IncorrectAnswer3>Run the Country</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What instrument did Ravi Shankar play?</Question>
+    <CorrectAnswer>Sitar</CorrectAnswer>
+    <IncorrectAnswer1>Shehnai</IncorrectAnswer1>
+    <IncorrectAnswer2>Tabla</IncorrectAnswer2>
+    <IncorrectAnswer3>Flute</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the Japanese word for freshwater eel?</Question>
+    <CorrectAnswer>Unagi</CorrectAnswer>
+    <IncorrectAnswer1>Umami</IncorrectAnswer1>
+    <IncorrectAnswer2>Karate</IncorrectAnswer2>
+    <IncorrectAnswer3>Schezuan</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who killed Achilles?</Question>
+    <CorrectAnswer>Paris</CorrectAnswer>
+    <IncorrectAnswer1>Helen</IncorrectAnswer1>
+    <IncorrectAnswer2>Kassandra</IncorrectAnswer2>
+    <IncorrectAnswer3>Perseus</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In what country would you be most likely to find a polder?</Question>
+    <CorrectAnswer>The Netherlands</CorrectAnswer>
+    <IncorrectAnswer1>Wales</IncorrectAnswer1>
+    <IncorrectAnswer2>France</IncorrectAnswer2>
+    <IncorrectAnswer3>Finland</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who is He-Man's nemesis?</Question>
+    <CorrectAnswer>Skeletor</CorrectAnswer>
+    <IncorrectAnswer1>Lord Skumm</IncorrectAnswer1>
+    <IncorrectAnswer2>Mumm-Ra</IncorrectAnswer2>
+    <IncorrectAnswer3>Gargamel</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What movie coined the phrase "there can be only one"?</Question>
+    <CorrectAnswer>Highlander</CorrectAnswer>
+    <IncorrectAnswer1>Twins</IncorrectAnswer1>
+    <IncorrectAnswer2>The Matrix</IncorrectAnswer2>
+    <IncorrectAnswer3>Terminator</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which English singer has topped the charts in the 50’s, 60’s, 70’s, 80’s and 90’s?</Question>
+    <CorrectAnswer>Sir Cliff Richard</CorrectAnswer>
+    <IncorrectAnswer1>Elton John</IncorrectAnswer1>
+    <IncorrectAnswer2>Mick Jagger</IncorrectAnswer2>
+    <IncorrectAnswer3>Paul McCartney</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Billy Corgan is the lead singer of which alternative rock band?</Question>
+    <CorrectAnswer>The Smashing Pumpkins</CorrectAnswer>
+    <IncorrectAnswer1>Sonic Youth</IncorrectAnswer1>
+    <IncorrectAnswer2>Nirvana</IncorrectAnswer2>
+    <IncorrectAnswer3>Soundgarden</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Who had a No.1 hit with Ice Ice Baby?</Question>
+    <CorrectAnswer>Vanilla Ice</CorrectAnswer>
+    <IncorrectAnswer1>Ice Cube</IncorrectAnswer1>
+    <IncorrectAnswer2>Ice MC</IncorrectAnswer2>
+    <IncorrectAnswer3>LL Cool J</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Jimmy, Robert, John and John: can you identify this rock band from the first names of their original line-up?</Question>
+    <CorrectAnswer>Led Zeppelin</CorrectAnswer>
+    <IncorrectAnswer1>The Beatles</IncorrectAnswer1>
+    <IncorrectAnswer2>The Rolling Stones</IncorrectAnswer2>
+    <IncorrectAnswer3>Pink Floyd</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Sir Paul McCartney actually goes by his middle name, what is his real first name?</Question>
+    <CorrectAnswer>James</CorrectAnswer>
+    <IncorrectAnswer1>John</IncorrectAnswer1>
+    <IncorrectAnswer2>Richard</IncorrectAnswer2>
+    <IncorrectAnswer3>George</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>How many members are there in pop group Little Mix?</Question>
+    <CorrectAnswer>4</CorrectAnswer>
+    <IncorrectAnswer1>3</IncorrectAnswer1>
+    <IncorrectAnswer2>5</IncorrectAnswer2>
+    <IncorrectAnswer3>6</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which famous film star danced (and flew) in the video to Fatboy Slim’s 2001 track Weapon of choice?</Question>
+    <CorrectAnswer>Christopher Walken</CorrectAnswer>
+    <IncorrectAnswer1>Bruce Willis</IncorrectAnswer1>
+    <IncorrectAnswer2>John Travolta</IncorrectAnswer2>
+    <IncorrectAnswer3>Samuel L Jackson</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>In what year did Elvis Presley die?</Question>
+    <CorrectAnswer>1977</CorrectAnswer>
+    <IncorrectAnswer1>1976</IncorrectAnswer1>
+    <IncorrectAnswer2>1975</IncorrectAnswer2>
+    <IncorrectAnswer3>1978</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>In 1975 Bohemian Rhapsody was number one for nine weeks. It was finally knocked off the top slot by a song with a name that appears in the lyrics of Bohemian Rhapsody. Name the song.</Question>
+    <CorrectAnswer>Abba - Mamma Mia</CorrectAnswer>
+    <IncorrectAnswer1>Earth, Wind &amp; Fire - Fantasy</IncorrectAnswer1>
+    <IncorrectAnswer2>Doris Day - Any Way The Wind Blows</IncorrectAnswer2>
+    <IncorrectAnswer3>10cc - I'm Not In Love</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>What was Britney Spears’ first single called?</Question>
+    <CorrectAnswer>Baby One More Time</CorrectAnswer>
+    <IncorrectAnswer1>Sometimes</IncorrectAnswer1>
+    <IncorrectAnswer2>(You Drive Me) Crazy</IncorrectAnswer2>
+    <IncorrectAnswer3>Born To Make You Happy</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>What was the name of Amy Winehouse’s second and final studio album released in 2006 and reached number one in multiple countries across the globe?</Question>
+    <CorrectAnswer>Back to Black</CorrectAnswer>
+    <IncorrectAnswer1>Rehab</IncorrectAnswer1>
+    <IncorrectAnswer2>Frank</IncorrectAnswer2>
+    <IncorrectAnswer3>You Know I'm No Good</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which band had a huge international hit album in 2002 with the record “A Rush of Blood to the Head”?</Question>
+    <CorrectAnswer>Coldplay</CorrectAnswer>
+    <IncorrectAnswer1>The Script</IncorrectAnswer1>
+    <IncorrectAnswer2>Snow Patrol</IncorrectAnswer2>
+    <IncorrectAnswer3>Killers</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Knights in White Satin was a 1967 hit for which band?</Question>
+    <CorrectAnswer>The Moody Blues</CorrectAnswer>
+    <IncorrectAnswer1>Procol Harum</IncorrectAnswer1>
+    <IncorrectAnswer2>Jethro Tull</IncorrectAnswer2>
+    <IncorrectAnswer3>Yes</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which band sang The Final Countdown?</Question>
+    <CorrectAnswer>Europe</CorrectAnswer>
+    <IncorrectAnswer1>Quiet Riot</IncorrectAnswer1>
+    <IncorrectAnswer2>Warrant</IncorrectAnswer2>
+    <IncorrectAnswer3>Great White</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>What was David Bowie’s real surname?</Question>
+    <CorrectAnswer>Jones</CorrectAnswer>
+    <IncorrectAnswer1>Floyd</IncorrectAnswer1>
+    <IncorrectAnswer2>Roberts</IncorrectAnswer2>
+    <IncorrectAnswer3>Duncan</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>How many members are there in South Korean mega boyband BTS?</Question>
+    <CorrectAnswer>7</CorrectAnswer>
+    <IncorrectAnswer1>8</IncorrectAnswer1>
+    <IncorrectAnswer2>6</IncorrectAnswer2>
+    <IncorrectAnswer3>9</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which talent show judge managed Westlife?</Question>
+    <CorrectAnswer>Louis Walsh</CorrectAnswer>
+    <IncorrectAnswer1>Simon Fuller</IncorrectAnswer1>
+    <IncorrectAnswer2>Simon Cowell</IncorrectAnswer2>
+    <IncorrectAnswer3>Sharon Osbourne</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Who sang the 1965 James Bond theme, Thunderball?</Question>
+    <CorrectAnswer>Tom Jones</CorrectAnswer>
+    <IncorrectAnswer1>Tina Turner</IncorrectAnswer1>
+    <IncorrectAnswer2>Shirley Bassey</IncorrectAnswer2>
+    <IncorrectAnswer3>Matt Monro</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Roger Taylor is the drummer in which band?</Question>
+    <CorrectAnswer>Queen</CorrectAnswer>
+    <IncorrectAnswer1>Pink Floyd</IncorrectAnswer1>
+    <IncorrectAnswer2>Madness</IncorrectAnswer2>
+    <IncorrectAnswer3>Duran Duran</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>In which year did the Spice Girls release Wannabe?</Question>
+    <CorrectAnswer>1996</CorrectAnswer>
+    <IncorrectAnswer1>1995</IncorrectAnswer1>
+    <IncorrectAnswer2>1994</IncorrectAnswer2>
+    <IncorrectAnswer3>1997</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Spandau Ballet features which former EastEnders actor in its line-up?</Question>
+    <CorrectAnswer>Martin Kemp</CorrectAnswer>
+    <IncorrectAnswer1>Barbara Windsor</IncorrectAnswer1>
+    <IncorrectAnswer2>Michael Greco</IncorrectAnswer2>
+    <IncorrectAnswer3>Leslie Grantham</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which song by the Monkees was in the movie Shrek?</Question>
+    <CorrectAnswer>I’m A Believer</CorrectAnswer>
+    <IncorrectAnswer1>Daydream Believer</IncorrectAnswer1>
+    <IncorrectAnswer2>Me &amp; Magdalena</IncorrectAnswer2>
+    <IncorrectAnswer3>Last Train to Clarksville</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Linger and Dreams were hits for which group?</Question>
+    <CorrectAnswer>The Cranberries</CorrectAnswer>
+    <IncorrectAnswer1>Fleetwood Mac</IncorrectAnswer1>
+    <IncorrectAnswer2>Gabrielle</IncorrectAnswer2>
+    <IncorrectAnswer3>D:Ream</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which Bob Dylan song did Adele include on her first album?</Question>
+    <CorrectAnswer>Make You Feel My Love</CorrectAnswer>
+    <IncorrectAnswer1>Like a Rolling Stone</IncorrectAnswer1>
+    <IncorrectAnswer2>Blowin' In The Wind</IncorrectAnswer2>
+    <IncorrectAnswer3>Just Like A Woman</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which novelty act had a Christmas number one in 2000 with, ‘Can We Fix It?’</Question>
+    <CorrectAnswer>Bob the Builder</CorrectAnswer>
+    <IncorrectAnswer1>Rastamouse</IncorrectAnswer1>
+    <IncorrectAnswer2>The Cartoons</IncorrectAnswer2>
+    <IncorrectAnswer3>Aqua</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Phil Collins, was in which group?</Question>
+    <CorrectAnswer>Genesis</CorrectAnswer>
+    <IncorrectAnswer1>Mike and the Mechanics</IncorrectAnswer1>
+    <IncorrectAnswer2>Yes</IncorrectAnswer2>
+    <IncorrectAnswer3>King Crimson</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Only one group has ever continued without any original members, what is the name of that group?</Question>
+    <CorrectAnswer>Sugababes</CorrectAnswer>
+    <IncorrectAnswer1>Yes</IncorrectAnswer1>
+    <IncorrectAnswer2>The Buggles</IncorrectAnswer2>
+    <IncorrectAnswer3>AC/DC</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which girl group had hits including Pure Shores and Never Ever?</Question>
+    <CorrectAnswer>All Saints</CorrectAnswer>
+    <IncorrectAnswer1>The Saturdays</IncorrectAnswer1>
+    <IncorrectAnswer2>B*Witched</IncorrectAnswer2>
+    <IncorrectAnswer3>Atomic Kitten</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which of these is an Elvis Presley movie?</Question>
+    <CorrectAnswer>Jailhouse Rock</CorrectAnswer>
+    <IncorrectAnswer1>Suspicious Minds</IncorrectAnswer1>
+    <IncorrectAnswer2>In the Ghetto</IncorrectAnswer2>
+    <IncorrectAnswer3>Don't Be Cruel</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>After serving as the bassist for the La’s, John Power became the lead singer for which band?</Question>
+    <CorrectAnswer>Cast</CorrectAnswer>
+    <IncorrectAnswer1>Shed 7</IncorrectAnswer1>
+    <IncorrectAnswer2>Ocean Colour Scene</IncorrectAnswer2>
+    <IncorrectAnswer3>The Seahorses</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>What was the name of the original drummer for The Beatles?</Question>
+    <CorrectAnswer>Pete Best</CorrectAnswer>
+    <IncorrectAnswer1>Pete Davies</IncorrectAnswer1>
+    <IncorrectAnswer2>Keith Moon</IncorrectAnswer2>
+    <IncorrectAnswer3>Stuart Sutcliffe</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>In what decade was American jazz trumpeter Miles Davis born?</Question>
+    <CorrectAnswer>1920s</CorrectAnswer>
+    <IncorrectAnswer1>1930s</IncorrectAnswer1>
+    <IncorrectAnswer2>1910s</IncorrectAnswer2>
+    <IncorrectAnswer3>1900s</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which artist headlined Friday night on the Pyramid Stage at Glastonbury Festival 2019?</Question>
+    <CorrectAnswer>Stormzy</CorrectAnswer>
+    <IncorrectAnswer1>Madonna</IncorrectAnswer1>
+    <IncorrectAnswer2>Lady Gaga</IncorrectAnswer2>
+    <IncorrectAnswer3>Adele</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>What was the name of Madonna’s first studio album, released in 1983?</Question>
+    <CorrectAnswer>Madonna</CorrectAnswer>
+    <IncorrectAnswer1>True Blue</IncorrectAnswer1>
+    <IncorrectAnswer2>Like A Virgin</IncorrectAnswer2>
+    <IncorrectAnswer3>Material Girl</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Rockstar David Howell Evans is better known by what name?</Question>
+    <CorrectAnswer>The Edge</CorrectAnswer>
+    <IncorrectAnswer1>Bono</IncorrectAnswer1>
+    <IncorrectAnswer2>Kid Rock</IncorrectAnswer2>
+    <IncorrectAnswer3>Elton John</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Will.i.am is best known for performing with which hip hop group?</Question>
+    <CorrectAnswer>The Black Eyed Peas</CorrectAnswer>
+    <IncorrectAnswer1>House of Pain</IncorrectAnswer1>
+    <IncorrectAnswer2>Public Enemy</IncorrectAnswer2>
+    <IncorrectAnswer3>Run DMC</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>In which English county were the bands Supergrass and Radiohead both founded?</Question>
+    <CorrectAnswer>Oxfordshire</CorrectAnswer>
+    <IncorrectAnswer1>Berkshire</IncorrectAnswer1>
+    <IncorrectAnswer2>Essex</IncorrectAnswer2>
+    <IncorrectAnswer3>Northamptonshire</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which band released a tie-in single for the live-action 2004 Thunderbirds movie?</Question>
+    <CorrectAnswer>Busted</CorrectAnswer>
+    <IncorrectAnswer1>McFly</IncorrectAnswer1>
+    <IncorrectAnswer2>S Club 7</IncorrectAnswer2>
+    <IncorrectAnswer3>S Club Juniors</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which of these is the real Abba tribute act?</Question>
+    <CorrectAnswer>Björn Again</CorrectAnswer>
+    <IncorrectAnswer1>Abba-Riginals</IncorrectAnswer1>
+    <IncorrectAnswer2>Björn2Böögie</IncorrectAnswer2>
+    <IncorrectAnswer3>Abba Don't Preach</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>Which famed British musician played a wizard singer in Harry Potter and the Goblet of Fire?</Question>
+    <CorrectAnswer>Jarvis Cocker</CorrectAnswer>
+    <IncorrectAnswer1>Ed Sheeran</IncorrectAnswer1>
+    <IncorrectAnswer2>Elton John</IncorrectAnswer2>
+    <IncorrectAnswer3>Mick Jagger</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>In what year were the hit songs Uptown Funk, Bad Blood, Chandelier, Fancy, Rather Be and Anaconda released?</Question>
+    <CorrectAnswer>2014</CorrectAnswer>
+    <IncorrectAnswer1>2015</IncorrectAnswer1>
+    <IncorrectAnswer2>2016</IncorrectAnswer2>
+    <IncorrectAnswer3>2017</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>What was the name of Johnny Cash’s backing band throughout his career?</Question>
+    <CorrectAnswer>The Tennessee Three</CorrectAnswer>
+    <IncorrectAnswer1>Alabama 3</IncorrectAnswer1>
+    <IncorrectAnswer2>Memphis Belles</IncorrectAnswer2>
+    <IncorrectAnswer3>Delta Heavies</IncorrectAnswer3>
+    <Category>General Knowledge, Music</Category>
+  </Module>
+  <Module>
+    <Question>What is the world’s largest land mammal?</Question>
+    <CorrectAnswer>Elephant</CorrectAnswer>
+    <IncorrectAnswer1>Blue Whale</IncorrectAnswer1>
+    <IncorrectAnswer2>Termite</IncorrectAnswer2>
+    <IncorrectAnswer3>Giraffe</IncorrectAnswer3>
+    <Category>General Knowledge, Natural World</Category>
+  </Module>
+  <Module>
+    <Question>Rio de Janeiro is a city in which South American country?</Question>
+    <CorrectAnswer>Brazil</CorrectAnswer>
+    <IncorrectAnswer1>Colombia</IncorrectAnswer1>
+    <IncorrectAnswer2>Mexico</IncorrectAnswer2>
+    <IncorrectAnswer3>Paraguay</IncorrectAnswer3>
+    <Category>General Knowledge, Geography</Category>
+  </Module>
+  <Module>
+    <Question>Which Middle Eastern city is also the name of a type of artichoke?</Question>
+    <CorrectAnswer>Jerusalem</CorrectAnswer>
+    <IncorrectAnswer1>Kabul</IncorrectAnswer1>
+    <IncorrectAnswer2>Yerevan</IncorrectAnswer2>
+    <IncorrectAnswer3>Tehran</IncorrectAnswer3>
+    <Category>General Knowledge, Geography</Category>
+  </Module>
+  <Module>
+    <Question>With which sport is Silverstone most associated?</Question>
+    <CorrectAnswer>Motor Racing</CorrectAnswer>
+    <IncorrectAnswer1>Football</IncorrectAnswer1>
+    <IncorrectAnswer2>Rugby</IncorrectAnswer2>
+    <IncorrectAnswer3>Running</IncorrectAnswer3>
+    <Category>General Knowledge, Sports</Category>
+  </Module>
+  <Module>
+    <Question>Nostradamus was famous for making what?</Question>
+    <CorrectAnswer>Predictions</CorrectAnswer>
+    <IncorrectAnswer1>Soup</IncorrectAnswer1>
+    <IncorrectAnswer2>Paintings</IncorrectAnswer2>
+    <IncorrectAnswer3>Love</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In mythology, Romulus and Remus were brought up by which animal?</Question>
+    <CorrectAnswer>Wolf</CorrectAnswer>
+    <IncorrectAnswer1>Lion</IncorrectAnswer1>
+    <IncorrectAnswer2>Bear</IncorrectAnswer2>
+    <IncorrectAnswer3>Spider</IncorrectAnswer3>
+    <Category>General Knowledge, Natural World</Category>
+  </Module>
+  <Module>
+    <Question>What is the main source of vitamin C?</Question>
+    <CorrectAnswer>Fruits</CorrectAnswer>
+    <IncorrectAnswer1>Sun</IncorrectAnswer1>
+    <IncorrectAnswer2>Vegetables</IncorrectAnswer2>
+    <IncorrectAnswer3>Chocolate</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Insulin is commonly used to treat which condition?</Question>
+    <CorrectAnswer>Diabetes</CorrectAnswer>
+    <IncorrectAnswer1>Asthma</IncorrectAnswer1>
+    <IncorrectAnswer2>Psoriasis</IncorrectAnswer2>
+    <IncorrectAnswer3>Toothache</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is dermatophobia the fear of?</Question>
+    <CorrectAnswer>Skin disease</CorrectAnswer>
+    <IncorrectAnswer1>Tattoos</IncorrectAnswer1>
+    <IncorrectAnswer2>Clowns</IncorrectAnswer2>
+    <IncorrectAnswer3>The Number 13</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>The Velocipede was a nineteenth-century prototype of what?</Question>
+    <CorrectAnswer>A bicycle</CorrectAnswer>
+    <IncorrectAnswer1>Roller Skates</IncorrectAnswer1>
+    <IncorrectAnswer2>Skateboard</IncorrectAnswer2>
+    <IncorrectAnswer3>Scooter</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which is Britain’s oldest Sunday newspaper, published for the first time in 1791?</Question>
+    <CorrectAnswer>The Observer</CorrectAnswer>
+    <IncorrectAnswer1>The Times</IncorrectAnswer1>
+    <IncorrectAnswer2>The Guardian</IncorrectAnswer2>
+    <IncorrectAnswer3>The Sun</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What was the middle name of Wolfgang Mozart?</Question>
+    <CorrectAnswer>Amadeus</CorrectAnswer>
+    <IncorrectAnswer1>Franz</IncorrectAnswer1>
+    <IncorrectAnswer2>Johan</IncorrectAnswer2>
+    <IncorrectAnswer3>Ludwig</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Taxidermy is the art of stuffing what?</Question>
+    <CorrectAnswer>Dead Animals</CorrectAnswer>
+    <IncorrectAnswer1>Tacos</IncorrectAnswer1>
+    <IncorrectAnswer2>Cushions</IncorrectAnswer2>
+    <IncorrectAnswer3>Teddies</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is Prince William’s second name?</Question>
+    <CorrectAnswer>Arthur</CorrectAnswer>
+    <IncorrectAnswer1>Andrew</IncorrectAnswer1>
+    <IncorrectAnswer2>Edward</IncorrectAnswer2>
+    <IncorrectAnswer3>Charles</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who invented the Flying Shuttle in 1733?</Question>
+    <CorrectAnswer>John Kay</CorrectAnswer>
+    <IncorrectAnswer1>Ian Watson</IncorrectAnswer1>
+    <IncorrectAnswer2>Robert Sheehan</IncorrectAnswer2>
+    <IncorrectAnswer3>Timothy Ericksson</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What does a Geiger Counter measure?</Question>
+    <CorrectAnswer>Radiation</CorrectAnswer>
+    <IncorrectAnswer1>Heat</IncorrectAnswer1>
+    <IncorrectAnswer2>Radiowaves</IncorrectAnswer2>
+    <IncorrectAnswer3>5g</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>If you were an LLD, what profession would you be involved in?</Question>
+    <CorrectAnswer>Law</CorrectAnswer>
+    <IncorrectAnswer1>Medicine</IncorrectAnswer1>
+    <IncorrectAnswer2>Real Estate</IncorrectAnswer2>
+    <IncorrectAnswer3>Teaching</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>How many of Henry VIII’s wives were called Anne?</Question>
+    <CorrectAnswer>2</CorrectAnswer>
+    <IncorrectAnswer1>1</IncorrectAnswer1>
+    <IncorrectAnswer2>3</IncorrectAnswer2>
+    <IncorrectAnswer3>4</IncorrectAnswer3>
+    <Category>General Knowledge</Category>
+  </Module>
+
 </QuestionBlocks>
 
