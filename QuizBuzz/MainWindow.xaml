@@ -84,7 +84,7 @@
         <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
             <StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
-                    <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Select a theme :</TextBlock>
+                    <!--<TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Select a theme :</TextBlock>
                     <ComboBox x:Name="CategorySelect" Width="120" Height="25" Margin="10">
                         <ComboBoxItem >General Knowledge</ComboBoxItem>
                         <ComboBoxItem >Geography</ComboBoxItem>
@@ -92,7 +92,7 @@
                         <ComboBoxItem >Movies</ComboBoxItem>
                         <ComboBoxItem >Music</ComboBoxItem>
                         <ComboBoxItem >Sports</ComboBoxItem>
-                    </ComboBox>
+                    </ComboBox>-->
                 </StackPanel>
                 <Button Style="{StaticResource AnswerButton}" Click="NewGame">Start</Button>
             </StackPanel>
@@ -134,7 +134,7 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="QuestionText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Question}">Some random text for testing.</TextBlock>
+                <TextBlock x:Name="QuestionText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Question}">Random Text for testing</TextBlock>
 
                 <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button1Clicked">Top Left</Button>
                 <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton2" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button2Clicked">Bottom Left</Button>
