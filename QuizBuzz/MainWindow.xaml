@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizBuzz"
         mc:Ignorable="d"
-        Title="Quiz Buzz" Height="450" Width="800" Background="#FF214C55">
+        Title="Quiz Buzz" Height="720" Width="1024" Background="#FF214C55" ResizeMode="CanResizeWithGrip">
     <Window.Resources>
+        <XmlDataProvider x:Key="ScoresData"
+                   Source="C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml"
+                   XPath="PlayerScoreBoard" />
+
         <Style TargetType="TextBlock" x:Key="Question">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="BlanchedAlmond"/>
@@ -27,6 +31,14 @@
             <Setter Property="Background" Value="DarkBlue"/>
             <Setter Property="Foreground" Value="BlanchedAlmond"/>
             <Setter Property="Margin" Value="0 10"/>
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" Width="115" TextAlignment="Center"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Button" x:Key="AnswerButton">
             <Setter Property="Width" Value="200"/>
@@ -37,6 +49,13 @@
             <Setter Property="Margin" Value="5 5"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" Width="115" TextAlignment="Center"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <Grid x:Name="GameScreen">
@@ -73,57 +92,125 @@
         <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="150" Style="{StaticResource UI}">
             <StackPanel x:Name="GameMenu">
                 <Button Style="{StaticResource MenuButton}" Click="NewGame">New Game</Button>
-                <Button Style="{StaticResource MenuButton}">Scores</Button>
+                <Button Style="{StaticResource MenuButton}" Click="ShowScoresPage">Scores</Button>
                 <Button Style="{StaticResource MenuButton}" Click="IncrementScore">Score++</Button>
                 <Button Style="{StaticResource MenuButton}" Click="OptionsMenuOpen">Options</Button>
-                <Button Style="{StaticResource MenuButton}">Exit</Button>
+                <Button Style="{StaticResource MenuButton}" Click="Button_Click">Exit</Button>
             </StackPanel>
         </Border>
 
         <!--START PAGE-->
-        <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
-                    <!--<TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Select a theme :</TextBlock>
-                    <ComboBox x:Name="CategorySelect" Width="120" Height="25" Margin="10">
-                        <ComboBoxItem >General Knowledge</ComboBoxItem>
-                        <ComboBoxItem >Geography</ComboBoxItem>
-                        <ComboBoxItem >History</ComboBoxItem>
-                        <ComboBoxItem >Movies</ComboBoxItem>
-                        <ComboBoxItem >Music</ComboBoxItem>
-                        <ComboBoxItem >Sports</ComboBoxItem>
-                    </ComboBox>-->
+        <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
+                    <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Number Of Questions :</TextBlock>
+                    <ComboBox x:Name="NumberOfQuestionsSelect" Width="120" Height="25" Margin="10" SelectedIndex="1">
+                        <ComboBoxItem Selected="Questions_5">5</ComboBoxItem>
+                        <ComboBoxItem Selected="Questions_10">10</ComboBoxItem>
+                        <ComboBoxItem Selected="Questions_20">20</ComboBoxItem>
+                        <ComboBoxItem Selected="Questions_30">30</ComboBoxItem>
+                        <ComboBoxItem Selected="Questions_50">50</ComboBoxItem>
+                    </ComboBox>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
+                    <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Select a theme :</TextBlock>
+                    <ComboBox x:Name="CategorySelect" Width="120" Height="25" Margin="10" SelectedIndex="0">
+                        <ComboBoxItem x:Name="Gn" Selected="General_Knowledge">All (General Knowledge)</ComboBoxItem>
+                        <ComboBoxItem x:Name="Fo" Selected="Food">Food &amp; Drink</ComboBoxItem>
+                        <ComboBoxItem x:Name="Ge" Selected="Geography">Geography</ComboBoxItem>
+                        <ComboBoxItem x:Name="Hi" Selected="History">History</ComboBoxItem>
+                        <ComboBoxItem x:Name="Mo" Selected="Movies">Movies</ComboBoxItem>
+                        <ComboBoxItem x:Name="Mu" Selected="Music">Music</ComboBoxItem>
+                        <ComboBoxItem x:Name="NW" Selected="Natural_World">Natural World</ComboBoxItem>
+                        <ComboBoxItem x:Name="Sc" Selected="Science">Science</ComboBoxItem>
+                        <ComboBoxItem x:Name="Sp" Selected="Sport">Sports</ComboBoxItem>
+                        <ComboBoxItem x:Name="Tv" Selected="TV">TV</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <TextBlock TextWrapping="Wrap" Width="300" Foreground="Yellow">If you select a category with less questions than you have asked for, the game will crash when the questions run out.</TextBlock>
                 <Button Style="{StaticResource AnswerButton}" Click="NewGame">Start</Button>
             </StackPanel>
+        </Border>
+
+        <!--SCORES PAGE-->
+        <Border x:Name="ScoresPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource Question}" FontWeight="Bold">Scores</TextBlock>
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="1">
+                        <StackPanel>
+                            <ItemsControl x:Name="ScoreBoard" ItemsSource="{Binding Source={StaticResource ScoresData}, XPath=PlayerScore}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="5" BorderThickness="2" BorderBrush="Bisque" Background="Blue" MinHeight="30" Margin="5">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding XPath=PlayerName}" Style="{StaticResource Question}" Grid.Column="0" FontWeight="Bold"/>
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="{Binding XPath=Category}" Style="{StaticResource Question}" Grid.Column="2" FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding XPath=Score}" Style="{StaticResource Question}" Grid.Column="1"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Text="{Binding XPath=Time}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
+                                                    <TextBlock Text="{Binding XPath=Date}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                <Button Style="{StaticResource AnswerButton}" Click="CloseOptions" Grid.Row="2">Back</Button>
+            </Grid>
         </Border>
 
         <!--GAME OVER PAGE-->
         <Border x:Name="GameOverPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
             <StackPanel>
                 <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Game Over</TextBlock>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
-                    <TextBlock x:Name="GameOverText" Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">You got 10 questions correct out of 10.</TextBlock>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
+                    <TextBlock x:Name="GameOverText" Style="{StaticResource Question}" HorizontalAlignment="Center" Margin="0 0 0 10" VerticalAlignment="Center">You got 10 questions correct out of 10.</TextBlock>
+                    <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Enter your name to save your score!</TextBlock>
+                    <TextBox x:Name="UsernameBox" Height="25" FontSize="18" TextAlignment="Center" Margin="5"></TextBox>
                 </StackPanel>
-                <Button Style="{StaticResource AnswerButton}" Click="BackToMainMenu">Return to Start</Button>
+                <Button Style="{StaticResource AnswerButton}" Click="SaveScoreAndReturnToStartPage">Return to Start</Button>
             </StackPanel>
         </Border>
 
         <!--OPTIONS PAGE-->
         <Border x:Name="OptionsPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
-            <StackPanel>
-                    <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center">Options</TextBlock>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
-                    <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Sound:</TextBlock>
-                    <Button x:Name="SoundOn" Style="{StaticResource MenuButton}" Width="60" Click="SoundOn_Click">On</Button>
-                    <Button x:Name="SoundOff" Style="{StaticResource MenuButton}" Width="60" Click="SoundOff_Click">Off</Button>
-                </StackPanel>
-                <Button Style="{StaticResource AnswerButton}" Click="CloseOptions">Return to Start</Button>
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center">Options</TextBlock>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+                            <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Sound:</TextBlock>
+                            <Button x:Name="SoundOn"  Margin="5" Width="100" Background="DarkBlue" Foreground="BlanchedAlmond" Click="SoundOn_Click" HorizontalContentAlignment="Center">On</Button>
+                            <Button x:Name="SoundOff" Margin="5" Width="100" Background="DarkBlue" Foreground="BlanchedAlmond" Click="SoundOff_Click">Off</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                <Button Style="{StaticResource AnswerButton}" Click="CloseOptions" VerticalAlignment="Bottom" Grid.Row="1">Return to Start</Button>
+            </Grid>
         </Border>
 
         <!--QUESTION BOARD-->
-        <Border x:Name="QuestionBoard" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
+        <Border x:Name="QuestionBoard" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
@@ -134,12 +221,13 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="QuestionText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Question}">Random Text for testing</TextBlock>
-
-                <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button1Clicked">Top Left</Button>
-                <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton2" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button2Clicked">Bottom Left</Button>
-                <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton3" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Button3Clicked">Top Right</Button>
-                <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton4" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button4Clicked">Bottom Right</Button>
+                <ScrollViewer Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="QuestionText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Question}">Random Text for testing</TextBlock>
+                </ScrollViewer>
+                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button1Clicked">Top Left</Button>
+                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton2" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button2Clicked">Bottom Left</Button>
+                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton3" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Button3Clicked">Top Right</Button>
+                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton4" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button4Clicked">Bottom Right</Button>
             </Grid>
         </Border>
     </Grid>

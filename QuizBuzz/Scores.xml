@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PlayerScoreBoard>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Score>100% (10 out of 10)</Score>
+    <Category>Food</Category>
+    <Date>09/06/2020</Date>
+    <Time>17:25</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Score>90% (18 out of 20)</Score>
+    <Category>Food</Category>
+    <Date>09/06/2020</Date>
+    <Time>02:33</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Score>90% (9 out of 10)</Score>
+    <Category>Music</Category>
+    <Date>08/06/2020</Date>
+    <Time>20:02</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Samantha</PlayerName>
+    <Score>40% (2 out of 5)</Score>
+    <Category>General Knowledge</Category>
+    <Date>08/06/2020</Date>
+    <Time>19:15</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Samantha</PlayerName>
+    <Score>60% (6 out of 10)</Score>
+    <Category>General Knowledge</Category>
+    <Date>07/06/2020</Date>
+    <Time>17:43</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Samantha</PlayerName>
+    <Score>60% (6 out of 10)</Score>
+    <Category>General Knowledge</Category>
+    <Date>07/06/2020</Date>
+    <Time>17:40</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Score>50% (5 out of 10)</Score>
+    <Category>General Knowledge</Category>
+    <Date>07/06/2020</Date>
+    <Time>17:19</Time>
+  </PlayerScore>
+</PlayerScoreBoard>
