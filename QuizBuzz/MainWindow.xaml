@@ -72,15 +72,14 @@
         <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Source="images/hex.png" Stretch="UniformToFill" Opacity="0.4"></Image>
         <!--HEADER-->
         <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="100" Style="{StaticResource UI}">
-            <TextBlock Foreground="BlanchedAlmond" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center">Quizzer</TextBlock>
+            <TextBlock Foreground="BlanchedAlmond" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center">QuizBuzz</TextBlock>
         </Border>
 
         <!--SCORE & CATEGORY-->
         <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="150" Height="80" Style="{StaticResource UI}">
-            <StackPanel x:Name="ScoresnCategoryBox">
-                <TextBlock Foreground="BlanchedAlmond" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">General Knowledge</TextBlock>
-                <TextBlock Foreground="BlanchedAlmond" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center">Question 2/10</TextBlock>
-            </StackPanel>
+            
+                <TextBlock x:Name="CategoryLabel" Foreground="BlanchedAlmond" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">General Knowledge</TextBlock>
+            
         </Border>
 
         <!--TIMER-->
@@ -92,15 +91,15 @@
         <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="150" Style="{StaticResource UI}">
             <StackPanel x:Name="GameMenu">
                 <Button Style="{StaticResource MenuButton}" Click="NewGame">New Game</Button>
-                <Button Style="{StaticResource MenuButton}" Click="ShowScoresPage">Scores</Button>
-                <Button Style="{StaticResource MenuButton}" Click="IncrementScore">Score++</Button>
                 <Button Style="{StaticResource MenuButton}" Click="OptionsMenuOpen">Options</Button>
+                <Button Style="{StaticResource MenuButton}" Click="ShowScoresPageClick">Scores</Button>
+                <Button Style="{StaticResource MenuButton}" Click="AboutMenuOpen">About</Button>
                 <Button Style="{StaticResource MenuButton}" Click="Button_Click">Exit</Button>
             </StackPanel>
         </Border>
 
         <!--START PAGE-->
-        <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
+        <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
                     <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Number Of Questions :</TextBlock>
@@ -128,7 +127,7 @@
                     </ComboBox>
                 </StackPanel>
                 <TextBlock TextWrapping="Wrap" Width="300" Foreground="Yellow">If you select a category with less questions than you have asked for, the game will crash when the questions run out.</TextBlock>
-                <Button Style="{StaticResource AnswerButton}" Click="NewGame">Start</Button>
+                <Button Style="{StaticResource AnswerButton}" Click="StartGame">Start</Button>
             </StackPanel>
         </Border>
 
@@ -150,16 +149,18 @@
                                         <Border CornerRadius="5" BorderThickness="2" BorderBrush="Bisque" Background="Blue" MinHeight="30" Margin="5">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="50"/>
                                                     <ColumnDefinition Width="1*"/>
                                                     <ColumnDefinition Width="1*"/>
                                                     <ColumnDefinition Width="1*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <TextBlock Text="{Binding XPath=PlayerName}" Style="{StaticResource Question}" Grid.Column="0" FontWeight="Bold"/>
-                                                <StackPanel Grid.Column="1">
+                                                <Image Source="{Binding XPath=Award}" Height="40"/>
+                                                <TextBlock Text="{Binding XPath=PlayerName}" Style="{StaticResource Question}" Grid.Column="1" FontWeight="Bold"/>
+                                                <StackPanel Grid.Column="2">
                                                     <TextBlock Text="{Binding XPath=Category}" Style="{StaticResource Question}" Grid.Column="2" FontWeight="Bold"/>
                                                     <TextBlock Text="{Binding XPath=Score}" Style="{StaticResource Question}" Grid.Column="1"/>
                                                 </StackPanel>
-                                                <StackPanel Grid.Column="2">
+                                                <StackPanel Grid.Column="3">
                                                     <TextBlock Text="{Binding XPath=Time}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
                                                     <TextBlock Text="{Binding XPath=Date}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
                                                 </StackPanel>
@@ -171,7 +172,7 @@
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
-                <Button Style="{StaticResource AnswerButton}" Click="CloseOptions" Grid.Row="2">Back</Button>
+                <Button Style="{StaticResource AnswerButton}" Click="BackToGameSetup" Grid.Row="2">Back</Button>
             </Grid>
         </Border>
 
@@ -209,25 +210,57 @@
             </Grid>
         </Border>
 
+        <!--ABOUT PAGE-->
+        <Border x:Name="AboutPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" Grid.Row="0">About QuizBuzz</TextBlock>
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <StackPanel VerticalAlignment="Stretch" Grid.Row="1">
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+                            <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" TextWrapping="Wrap" MaxWidth="640">
+                                <Run Text="QuizBuzz was created by Colin Dick"/><LineBreak/><LineBreak/>
+                                <Run Text="Sound By Colin Dick"/><LineBreak/><LineBreak/>
+                                <Run Text="All Images were found online and are labelled for Private and Commercial Use with or without modification."/><LineBreak/><LineBreak/>
+                                <Run Text="Some questions were found online and either taken as-is or adapted for use."/><LineBreak/><LineBreak/>
+                                <Run Text="This game was not made for profit. If you are a copyright holder and have any issues with the use of your property contact me at: "/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center"><Hyperlink NavigateUri="mailto:colindaviddick@gmail.com?subject=Copyright+Issues+With+QuizBuzz&amp;" 
+                                                                                                                               
+                                                                                                                               RequestNavigate="Hyperlink_RequestNavigate">colindaviddick@gmail.com</Hyperlink>
+                        </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                <Button Style="{StaticResource AnswerButton}" Click="CloseOptions" VerticalAlignment="Bottom" Grid.Row="2">Return to Start</Button>
+            </Grid>
+        </Border>
+
         <!--QUESTION BOARD-->
-        <Border x:Name="QuestionBoard" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
+        <Border x:Name="QuestionBoard" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <ScrollViewer Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto">
-                    <TextBlock x:Name="QuestionText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Question}">Random Text for testing</TextBlock>
+                <TextBlock x:Name="QuestionNumberIndicator" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Style="{StaticResource Question}">Random Text for testing</TextBlock>
+                <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="QuestionText" Style="{StaticResource Question}">Random Text for testing</TextBlock>
                 </ScrollViewer>
-                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button1Clicked">Top Left</Button>
-                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton2" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button2Clicked">Bottom Left</Button>
-                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton3" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Button3Clicked">Top Right</Button>
-                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton4" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button4Clicked">Bottom Right</Button>
+                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button1Clicked">Top Left</Button>
+                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton2" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button2Clicked">Bottom Left</Button>
+                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton3" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Button3Clicked">Top Right</Button>
+                    <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton4" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button4Clicked">Bottom Right</Button>
             </Grid>
         </Border>
     </Grid>

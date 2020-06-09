@@ -2,6 +2,70 @@
 <PlayerScoreBoard>
   <PlayerScore>
     <PlayerName>Colin</PlayerName>
+    <Award>images/BronzeTrophy.png</Award>
+    <Score>90% (9 out of 10)</Score>
+    <Category>Geography</Category>
+    <Date>09/06/2020</Date>
+    <Time>20:41</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Award>images/BronzeTrophy.png</Award>
+    <Score>90% (9 out of 10)</Score>
+    <Category>Natural World</Category>
+    <Date>09/06/2020</Date>
+    <Time>20:36</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Award></Award>
+    <Score>80% (8 out of 10)</Score>
+    <Category>Movies</Category>
+    <Date>09/06/2020</Date>
+    <Time>20:30</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Award></Award>
+    <Score>80% (16 out of 20)</Score>
+    <Category>Music</Category>
+    <Date>09/06/2020</Date>
+    <Time>19:43</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Sam</PlayerName>
+    <Award>images/Poop.png</Award>
+    <Score>0% (0 out of 10)</Score>
+    <Category>General Knowledge</Category>
+    <Date>09/06/2020</Date>
+    <Time>19:16</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Award>images/GoldTrophy.png</Award>
+    <Score>100% (10 out of 10)</Score>
+    <Category>General Knowledge</Category>
+    <Date>09/06/2020</Date>
+    <Time>19:13</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
+    <Award>images/trophy.png</Award>
+    <Score>90% (9 out of 10)</Score>
+    <Category>General Knowledge</Category>
+    <Date>09/06/2020</Date>
+    <Time>19:00</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Peter</PlayerName>
+    <Award>images/trophy.png</Award>
+    <Score>40% (8 out of 20)</Score>
+    <Category>History</Category>
+    <Date>09/06/2020</Date>
+    <Time>18:41</Time>
+  </PlayerScore>
+  <PlayerScore>
+    <PlayerName>Colin</PlayerName>
     <Score>100% (10 out of 10)</Score>
     <Category>Food</Category>
     <Date>09/06/2020</Date>

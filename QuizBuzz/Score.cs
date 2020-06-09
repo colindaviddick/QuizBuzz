@@ -8,10 +8,11 @@ namespace QuizBuzz
 {
     public class Score
     {
-        string Name { get; set; }
-        string ScorePercentage { get; set;}
-        string Category { get; set; }
-        string DateAndTime { get; set; }
+        public string Award { get; set; }
+        public string Name { get; set; }
+        public string ScorePercentage { get; set;}
+        public string Category { get; set; }
+        public string DateAndTime { get; set; }
 
         public void AddScore(string name,
             string scorePercentage,

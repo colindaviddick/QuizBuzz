@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -31,6 +32,9 @@ namespace QuizBuzz
         // Show scores per groups of questions for fairness.
 
         // Add streaks? 5+ questions in a row = a streak & earns a medal?
+
+        // Disable the possibility of double clicking... 
+        // Find the scores relative to the app
 
         readonly MediaPlayer mp = new MediaPlayer();
         public QuestionLoader questionManager = new QuestionLoader();
@@ -69,14 +73,14 @@ namespace QuizBuzz
             mp.Play();
             InitializeComponent();
             questionManager.LoadQuestionsToList(
-                gnQuestionPool, 
-                musicQuestionPool, 
-                movieQuestionPool, 
-                geographyQuestionPool, 
-                scienceQuestionPool, 
-                historyQuestionPool, 
-                sportQuestionPool, 
-                tvQuestionPool, 
+                gnQuestionPool,
+                musicQuestionPool,
+                movieQuestionPool,
+                geographyQuestionPool,
+                scienceQuestionPool,
+                historyQuestionPool,
+                sportQuestionPool,
+                tvQuestionPool,
                 naturalWorldQuestionPool,
                 foodQuestionPool);
             SetCategoryCounts();
@@ -166,8 +170,57 @@ namespace QuizBuzz
             StartPage.Visibility = Visibility.Hidden;
             QuestionBoard.Visibility = Visibility.Visible;
             CheckCategoryAndPassToNextQuestion();
+            DisplayCategory();
             scoreDisplay.Text = gm.Score.ToString();
             gameInProgress = true;
+            DisplayQuestionCountIndicator();
+
+        }
+
+        void DisplayCategory()
+        {
+            CategoryLabel.Text = gm.Category;
+
+            switch (gm.Category)
+            {
+                case "Music":
+                    CategoryLabel.Text = "Music";
+                    break;
+                case "Movies":
+                    CategoryLabel.Text = "Movies";
+                    break;
+                case "Food":
+                    CategoryLabel.Text = "Food & Drink";
+                    break;
+                case "Geography":
+                    CategoryLabel.Text = "Geography";
+                    break;
+                case "Science":
+                    CategoryLabel.Text = "Science";
+                    break;
+                case "History":
+                    CategoryLabel.Text = "History";
+                    break;
+                case "Natural World":
+                    CategoryLabel.Text = "Natural World";
+                    break;
+                case "Sport":
+                    CategoryLabel.Text = "Sport";
+                    break;
+                case "TV":
+                    CategoryLabel.Text = "TV";
+                    break;
+                case "General Knowledge":
+                    CategoryLabel.Text = "General Knowledge";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void DisplayQuestionCountIndicator()
+        {
+            QuestionNumberIndicator.Text = ("Question " + (gm.CurrentGameQuestionNumber + 1) + " of " + gm.NumberOfGameQuestions);
         }
 
         public void NewGame(object sender, RoutedEventArgs e)
@@ -178,7 +231,7 @@ namespace QuizBuzz
 
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    ResetGame();
+                    DisplayGameSetup();
                 }
             }
             else
@@ -189,8 +242,7 @@ namespace QuizBuzz
 
         public void CheckGameProgress()
         {
-            // I want to invert the way this works so that I can tie in the Current Question to a display on the screen: eg. Question 1 of 10.
-
+            DisplayQuestionCountIndicator();
             if (gm.CurrentGameQuestionNumber == gm.NumberOfGameQuestions)
             {
                 GameOver();
@@ -206,6 +258,7 @@ namespace QuizBuzz
             QuestionBoard.Visibility = Visibility.Hidden;
             OptionsPage.Visibility = Visibility.Hidden;
             ScoresPage.Visibility = Visibility.Hidden;
+            AboutPage.Visibility = Visibility.Hidden;
             gm.Percentage = ((endScore / endTotalQuestions) * 100);
             GameOverText.Text = ("You answered " + gm.Score.ToString() + " out of " + gm.NumberOfGameQuestions + " questions correctly. (" + gm.Percentage + "%)");
             gameInProgress = false;
@@ -381,16 +434,24 @@ namespace QuizBuzz
                 GameOverPage.Visibility = Visibility.Hidden;
                 OptionsPage.Visibility = Visibility.Hidden;
                 ScoresPage.Visibility = Visibility.Hidden;
+                AboutPage.Visibility = Visibility.Hidden;
             }
             else
             {
-                QuestionBoard.Visibility = Visibility.Hidden;
-                StartPage.Visibility = Visibility.Visible;
-                GameOverPage.Visibility = Visibility.Hidden;
-                OptionsPage.Visibility = Visibility.Hidden;
-                ScoresPage.Visibility = Visibility.Hidden;
+                DisplayGameSetup();
             }
         }
+
+        public void DisplayGameSetup()
+        {
+            QuestionBoard.Visibility = Visibility.Hidden;
+            StartPage.Visibility = Visibility.Visible;
+            GameOverPage.Visibility = Visibility.Hidden;
+            OptionsPage.Visibility = Visibility.Hidden;
+            ScoresPage.Visibility = Visibility.Hidden;
+            AboutPage.Visibility = Visibility.Hidden;
+        }
+
         private void OptionsMenuOpen(object sender, RoutedEventArgs e)
         {
             QuestionBoard.Visibility = Visibility.Hidden;
@@ -422,7 +483,7 @@ namespace QuizBuzz
         }
         private void Questions_5(object sender, RoutedEventArgs e)
         {
-            gm.NumberOfGameQuestions= 5;
+            gm.NumberOfGameQuestions = 5;
         }
         private void Questions_10(object sender, RoutedEventArgs e)
         {
@@ -485,17 +546,42 @@ namespace QuizBuzz
         {
             if (UsernameBox.Text != "" && UsernameBox != null)
             {
+                Score sc = new Score();
+                if (gm.Percentage == 100)
+                {
+                    sc.Award = "images/GoldTrophy.png";
+                }
+                else if (gm.Percentage >= 90)
+                {
+                    sc.Award = "images/SilverTrophy.png";
+                }
+                else if (gm.Percentage >= 80)
+                {
+                    sc.Award = "images/BronzeTrophy.png";
+                }
+                else if (gm.Percentage == 0)
+                {
+                    sc.Award = "images/Poop.png";
+                }
+                else
+                {
+                    sc.Award = "";
+                }
+
                 if (!File.Exists(@"C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml"))
                 {
-                    XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
-                    xmlWriterSettings.Indent = true;
-                    xmlWriterSettings.NewLineOnAttributes = true;
+                    XmlWriterSettings xmlWriterSettings = new XmlWriterSettings
+                    {
+                        Indent = true,
+                        NewLineOnAttributes = true
+                    };
                     using (XmlWriter xmlWriter = XmlWriter.Create(@"C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml", xmlWriterSettings))
                     {
                         xmlWriter.WriteStartDocument();
                         xmlWriter.WriteStartElement("PlayerScoreBoard");
 
                         xmlWriter.WriteStartElement("PlayerScore");
+                        xmlWriter.WriteElementString("Award", sc.Award);
                         xmlWriter.WriteElementString("PlayerName", UsernameBox.Text);
                         xmlWriter.WriteElementString("Score", (gm.Percentage + "% (" + gm.Score.ToString() + " out of " + gm.NumberOfGameQuestions + ")"));
                         xmlWriter.WriteElementString("Category", gm.Category);
@@ -514,43 +600,80 @@ namespace QuizBuzz
                     XDocument xDocument = XDocument.Load(@"C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml");
                     XElement root = xDocument.Element("PlayerScoreBoard");
                     IEnumerable<XElement> rows = root.Descendants("PlayerScore");
+
                     XElement firstRow = rows.First();
                     firstRow.AddBeforeSelf(
                        new XElement("PlayerScore",
-                       new XElement("PlayerName", UsernameBox.Text),  
-                       new XElement("Score", (gm.Percentage + "% (" + gm.Score.ToString() + " out of " + gm.NumberOfGameQuestions + ")")),
+                       new XElement("PlayerName", UsernameBox.Text),
+                       new XElement("Award", sc.Award),
+                    new XElement("Score", (gm.Percentage + "% (" + gm.Score.ToString() + " out of " + gm.NumberOfGameQuestions + ")")),
                     new XElement("Category", gm.Category),
                        new XElement("Date", DateTime.Now.ToString("dd/MM/yyyy")),
                        new XElement("Time", DateTime.Now.ToString("HH:mm"))
                        ));
+
                     xDocument.Save(@"C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml");
                 }
+                XmlDataProvider xmlDataProvider = this.Resources["ScoresData"] as XmlDataProvider;
+                xmlDataProvider.Refresh();
+                ShowScoresPage();
+            }
+            else
+            {
+                DisplayGameSetup();
             }
 
-            XmlDataProvider xmlDataProvider = this.Resources["ScoresData"] as XmlDataProvider;
-            xmlDataProvider.Refresh();
 
-            QuestionBoard.Visibility = Visibility.Hidden;
-            StartPage.Visibility = Visibility.Visible;
-            GameOverPage.Visibility = Visibility.Hidden;
-            ScoresPage.Visibility = Visibility.Hidden;
         }
-        private void ShowScoresPage(object sender, RoutedEventArgs e)
+        private void ShowScoresPageClick(object sender, RoutedEventArgs e)
+        {
+            ShowScoresPage();
+        }
+
+        private void ShowScoresPage()
         {
             QuestionBoard.Visibility = Visibility.Hidden;
             StartPage.Visibility = Visibility.Hidden;
+            OptionsPage.Visibility = Visibility.Hidden;
             GameOverPage.Visibility = Visibility.Hidden;
             ScoresPage.Visibility = Visibility.Visible;
+            AboutPage.Visibility = Visibility.Hidden;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult confirmShutdown = MessageBox.Show("Are you sure you want to exit the game?", "Confirm exit", MessageBoxButton.YesNo);
-            
-            if(confirmShutdown == MessageBoxResult.Yes)
+
+            if (confirmShutdown == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown();
             }
+        }
+
+        private void BackToGameSetup(object sender, RoutedEventArgs e)
+        {
+            DisplayGameSetup();
+        }
+
+        private void AboutMenuOpen(object sender, RoutedEventArgs e)
+        {
+            QuestionBoard.Visibility = Visibility.Hidden;
+            StartPage.Visibility = Visibility.Hidden;
+            OptionsPage.Visibility = Visibility.Hidden;
+            GameOverPage.Visibility = Visibility.Hidden;
+            ScoresPage.Visibility = Visibility.Hidden;
+            AboutPage.Visibility = Visibility.Visible;
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(e.Uri.AbsoluteUri);
+            e.Handled = true;
+        }
+
+        private void StartGame(object sender, RoutedEventArgs e)
+        {
+            ResetGame();
         }
     }
 }
