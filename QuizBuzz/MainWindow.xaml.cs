@@ -86,6 +86,7 @@ namespace QuizBuzz
                 tvQuestionPool,
                 naturalWorldQuestionPool,
                 foodQuestionPool);
+            SetVolumeToOne();
             SetCategoryCounts();
         }
 
@@ -705,10 +706,27 @@ namespace QuizBuzz
             ResetGame();
         }
 
+        public void SliderReadoutChanged()
+        {
+            VolumeReadout.Text = ((VolumeSlider.Value * 100).ToString() + "%");
+        }
+
+        public void SetVolumeToOne()
+        {
+            VolumeSlider.Value = 0.5;
+            SliderReadoutChanged();
+        }
+
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             mp.Volume = VolumeSlider.Value;
-            VolumeReadout.Text = VolumeSlider.Value.ToString();
+            SliderReadoutChanged();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            mp.Open(new Uri(introSoundFilePath, UriKind.RelativeOrAbsolute));
+            mp.Play();
         }
     }
 }
