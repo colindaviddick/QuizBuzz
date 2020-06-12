@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,9 @@ namespace QuizBuzz
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Need more TV Questions. I want at least 50 questions for each topic.
+        // Maybe add theming, but not vital.
+
         // To add more of a game element to the quiz, have a 10s timer for each question?
         // Points reduce for every half second it takes to answer
         //
@@ -34,7 +38,6 @@ namespace QuizBuzz
         // Add streaks? 5+ questions in a row = a streak & earns a medal?
 
         // Disable the possibility of double clicking... 
-        // Find the scores relative to the app
 
         readonly MediaPlayer mp = new MediaPlayer();
         public QuestionLoader questionManager = new QuestionLoader();
@@ -84,6 +87,30 @@ namespace QuizBuzz
                 naturalWorldQuestionPool,
                 foodQuestionPool);
             SetCategoryCounts();
+        }
+
+        private async void AnswerDisplay(bool IsAnswerCorrect)
+        {
+            if(IsAnswerCorrect)
+            {
+                CorrectPage.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                IncorrectPage.Visibility = Visibility.Visible;
+            }
+
+            await Task.Delay(1000);
+
+            if (IsAnswerCorrect)
+            {
+                CorrectPage.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                IncorrectPage.Visibility = Visibility.Hidden;
+            }
+
         }
 
         public void SetCategoryCounts()
@@ -266,6 +293,7 @@ namespace QuizBuzz
 
         public void CorrectAnswer()
         {
+            AnswerDisplay(true);
             if (gm.PlaySounds)
             {
                 mp.Open(new Uri(correctSoundFilePath, UriKind.RelativeOrAbsolute));
@@ -338,6 +366,7 @@ namespace QuizBuzz
 
         public void IncorrectAnswer()
         {
+            AnswerDisplay(false);
             if (gm.PlaySounds)
             {
                 mp.Open(new Uri(incorrectSoundFilePath, UriKind.RelativeOrAbsolute));
@@ -568,14 +597,14 @@ namespace QuizBuzz
                     sc.Award = "";
                 }
 
-                if (!File.Exists(@"C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml"))
+                if (!File.Exists(@"Scores.xml"))
                 {
                     XmlWriterSettings xmlWriterSettings = new XmlWriterSettings
                     {
                         Indent = true,
                         NewLineOnAttributes = true
                     };
-                    using (XmlWriter xmlWriter = XmlWriter.Create(@"C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml", xmlWriterSettings))
+                    using (XmlWriter xmlWriter = XmlWriter.Create(@"Scores.xml", xmlWriterSettings))
                     {
                         xmlWriter.WriteStartDocument();
                         xmlWriter.WriteStartElement("PlayerScoreBoard");
@@ -597,7 +626,7 @@ namespace QuizBuzz
                 }
                 else
                 {
-                    XDocument xDocument = XDocument.Load(@"C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml");
+                    XDocument xDocument = XDocument.Load(@"Scores.xml");
                     XElement root = xDocument.Element("PlayerScoreBoard");
                     IEnumerable<XElement> rows = root.Descendants("PlayerScore");
 
@@ -612,7 +641,7 @@ namespace QuizBuzz
                        new XElement("Time", DateTime.Now.ToString("HH:mm"))
                        ));
 
-                    xDocument.Save(@"C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml");
+                    xDocument.Save(@"Scores.xml");
                 }
                 XmlDataProvider xmlDataProvider = this.Resources["ScoresData"] as XmlDataProvider;
                 xmlDataProvider.Refresh();
@@ -674,6 +703,12 @@ namespace QuizBuzz
         private void StartGame(object sender, RoutedEventArgs e)
         {
             ResetGame();
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mp.Volume = VolumeSlider.Value;
+            VolumeReadout.Text = VolumeSlider.Value.ToString();
         }
     }
 }

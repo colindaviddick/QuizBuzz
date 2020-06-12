@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizBuzz"
         mc:Ignorable="d"
-        Title="Quiz Buzz" Height="720" Width="1024" Background="#FF214C55" ResizeMode="CanResizeWithGrip">
+        Title="Quiz Buzz" Height="720" Width="1024" Background="#FF4DA6B4" ResizeMode="CanResizeWithGrip" WindowState="Maximized">
     <Window.Resources>
         <XmlDataProvider x:Key="ScoresData"
-                   Source="C:\Users\Colin\source\repos\QuizBuzz\QuizBuzz\Scores.xml"
+                   Source="Scores.xml"
                    XPath="PlayerScoreBoard" />
 
         <Style TargetType="TextBlock" x:Key="Question">
@@ -20,7 +20,7 @@
         </Style>
         <Style TargetType="Border" x:Key="UI">
             <Setter Property="Panel.ZIndex" Value="10"/>
-            <Setter Property="Background" Value="#9900008B"/>
+            <Setter Property="Background" Value="#CC00008B"/>
             <Setter Property="CornerRadius" Value="20"/>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="10"/>
@@ -185,12 +185,12 @@
                     <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Enter your name to save your score!</TextBlock>
                     <TextBox x:Name="UsernameBox" Height="25" FontSize="18" TextAlignment="Center" Margin="5"></TextBox>
                 </StackPanel>
-                <Button Style="{StaticResource AnswerButton}" Click="SaveScoreAndReturnToStartPage">Return to Start</Button>
+                <Button Style="{StaticResource AnswerButton}" Click="SaveScoreAndReturnToStartPage">Next</Button>
             </StackPanel>
         </Border>
 
         <!--OPTIONS PAGE-->
-        <Border x:Name="OptionsPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
+        <Border x:Name="OptionsPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -203,6 +203,12 @@
                             <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Sound:</TextBlock>
                             <Button x:Name="SoundOn"  Margin="5" Width="100" Background="DarkBlue" Foreground="BlanchedAlmond" Click="SoundOn_Click" HorizontalContentAlignment="Center">On</Button>
                             <Button x:Name="SoundOff" Margin="5" Width="100" Background="DarkBlue" Foreground="BlanchedAlmond" Click="SoundOff_Click">Off</Button>
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Need to figure out how to limit the decimal points. This gets weird.</TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Volume:</TextBlock>
+                            <Slider x:Name="VolumeSlider" Width="210" Margin="5" ValueChanged="Slider_ValueChanged" SmallChange="1" TickFrequency="10"/>
+                            <TextBlock x:Name="VolumeReadout" Text="{Binding ElementName=mp.Volume, Path=Value, StringFormat=N0, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="25"/>
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
@@ -237,6 +243,30 @@
                     </StackPanel>
                 </ScrollViewer>
                 <Button Style="{StaticResource AnswerButton}" Click="CloseOptions" VerticalAlignment="Bottom" Grid.Row="2">Return to Start</Button>
+            </Grid>
+        </Border>
+
+        <!--CORRECT PAGE-->
+        <Border x:Name="CorrectPage" Background="#FF00008B" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden" Panel.ZIndex="99">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Correct!" Foreground="Green" FontSize="50" FontWeight="Bold" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <!--INCORRECT PAGE-->
+        <Border x:Name="IncorrectPage" Background="#FF00008B" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden" Panel.ZIndex="99">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Incorrect!" Foreground="Red" FontSize="50" FontWeight="Bold" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
         </Border>
 
