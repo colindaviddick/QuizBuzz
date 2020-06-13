@@ -20,6 +20,7 @@ using System.Windows.Shapes;
 using System.Xml;
 using System.Xml.Linq;
 
+
 namespace QuizBuzz
 {
     /// <summary>
@@ -40,6 +41,7 @@ namespace QuizBuzz
         // Disable the possibility of double clicking... 
 
         readonly MediaPlayer mp = new MediaPlayer();
+        MediaPlayer bgmusic = new MediaPlayer();
         public QuestionLoader questionManager = new QuestionLoader();
         public GameManager gm = new GameManager();
         public bool button1;
@@ -50,6 +52,7 @@ namespace QuizBuzz
         readonly string incorrectSoundFilePath = "Incorrect.wav";
         readonly string introSoundFilePath = "Intro.wav";
         bool gameInProgress = false;
+        bool musicPlaying = false;
 
         readonly Random r = new Random();
 
@@ -72,8 +75,10 @@ namespace QuizBuzz
         {
             gm.Category = "General Knowledge";
             gm.PlaySounds = true;
-            mp.Open(new Uri(introSoundFilePath, UriKind.RelativeOrAbsolute));
-            mp.Play();
+            //mp.Open(new Uri(introSoundFilePath, UriKind.RelativeOrAbsolute));
+            //mp.Play();
+            // Play these if bg music is off
+            MusicLoop();
             InitializeComponent();
             questionManager.LoadQuestionsToList(
                 gnQuestionPool,
@@ -92,7 +97,7 @@ namespace QuizBuzz
 
         private async void AnswerDisplay(bool IsAnswerCorrect)
         {
-            if(IsAnswerCorrect)
+            if (IsAnswerCorrect)
             {
                 CorrectPage.Visibility = Visibility.Visible;
             }
@@ -112,6 +117,24 @@ namespace QuizBuzz
                 IncorrectPage.Visibility = Visibility.Hidden;
             }
 
+        }
+
+
+
+        public async void MusicLoop()
+        {
+
+            bgmusic.Open(new Uri("BGLoop.wav", UriKind.RelativeOrAbsolute));
+            bgmusic.MediaEnded += new EventHandler(Media_Ended);
+            bgmusic.Play();
+
+            return;
+        }
+
+        private async void Media_Ended(object sender, EventArgs e)
+        {
+            bgmusic.Position = TimeSpan.Zero;
+            bgmusic.Play();
         }
 
         public void SetCategoryCounts()
@@ -714,6 +737,8 @@ namespace QuizBuzz
         public void SetVolumeToOne()
         {
             VolumeSlider.Value = 0.5;
+            MusicVolumeSlider.Value = 0.5;
+            MusicVolumeReadoutChanged();
             SliderReadoutChanged();
         }
 
@@ -723,10 +748,56 @@ namespace QuizBuzz
             SliderReadoutChanged();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void PlayIntroMusic(object sender, RoutedEventArgs e)
         {
             mp.Open(new Uri(introSoundFilePath, UriKind.RelativeOrAbsolute));
             mp.Play();
+        }
+
+        private void MusicSoundOn_Click(object sender, RoutedEventArgs e)
+        {
+            MusicLoop();
+            MusicSoundOn.Background = Brushes.Green;
+            MusicSoundOff.Background = Brushes.DarkBlue;
+        }
+
+        private void MusicSoundOff_Click(object sender, RoutedEventArgs e)
+        {
+            bgmusic.Stop();
+            MusicSoundOn.Background = Brushes.DarkBlue;
+            MusicSoundOff.Background = Brushes.Red;
+        }
+
+        private void MusicVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            bgmusic.Volume = MusicVolumeSlider.Value;
+            MusicVolumeReadoutChanged();
+        }
+        private void MusicVolumeReadoutChanged()
+        {
+            MusicVolumeReadout.Text = ((MusicVolumeSlider.Value * 100).ToString() + "%");
+        }
+
+
+        private void PlayRandomSoundFX()
+        {
+            int rInt = r.Next(0, 100);
+            if(rInt % 2 == 0)
+            {
+                mp.Open(new Uri(correctSoundFilePath, UriKind.RelativeOrAbsolute));
+                mp.Play();
+            }
+            else
+            {
+                mp.Open(new Uri(incorrectSoundFilePath, UriKind.RelativeOrAbsolute));
+                mp.Play();
+            }
+                
+        }
+
+        private void RandomSFX(object sender, RoutedEventArgs e)
+        {
+            PlayRandomSoundFX();
         }
     }
 }

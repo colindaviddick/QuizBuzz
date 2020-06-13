@@ -120,6 +120,9 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BGLoop.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Correct.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

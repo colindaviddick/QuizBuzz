@@ -24,6 +24,5 @@ namespace QuizBuzz
             Category = category;
             DateAndTime = dateAndTime;
         }
-
     }
 }

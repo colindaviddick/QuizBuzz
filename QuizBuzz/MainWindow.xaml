@@ -190,6 +190,7 @@
         </Border>
 
         <!--OPTIONS PAGE-->
+        <!--####-->
         <Border x:Name="OptionsPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
             <Grid>
                 <Grid.RowDefinitions>
@@ -204,13 +205,23 @@
                             <Button x:Name="SoundOn"  Margin="5" Width="100" Background="DarkBlue" Foreground="BlanchedAlmond" Click="SoundOn_Click" HorizontalContentAlignment="Center">On</Button>
                             <Button x:Name="SoundOff" Margin="5" Width="100" Background="DarkBlue" Foreground="BlanchedAlmond" Click="SoundOff_Click">Off</Button>
                         </StackPanel>
-                        <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Need to figure out how to limit the decimal points. This gets weird.</TextBlock>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Volume:</TextBlock>
-                            <Slider x:Name="VolumeSlider" Width="210" Margin="5" ValueChanged="Slider_ValueChanged" TickPlacement="BottomRight" TickFrequency="0.1" IsSnapToTickEnabled="True" Minimum="0" Maximum="1"/>
+                            <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Effects Volume:"/></TextBlock>
+                            <Slider x:Name="VolumeSlider" Foreground="Cyan" Width="210" Margin="5" ValueChanged="Slider_ValueChanged" TickPlacement="BottomRight" TickFrequency="0.1" IsSnapToTickEnabled="True" Minimum="0" Maximum="1" LargeChange="0.2"/>
                             <TextBlock x:Name="VolumeReadout" Text="{Binding ElementName=mp.Volume, Path=Value, StringFormat=N0, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50"/>
                         </StackPanel>
-                        <Button Click="Button_Click_1" Style="{StaticResource MenuButton}">Play Intro</Button>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+                            <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Music:</TextBlock>
+                            <Button x:Name="MusicSoundOn"  Margin="5" Width="100" Background="Green" Foreground="BlanchedAlmond" Click="MusicSoundOn_Click" HorizontalContentAlignment="Center">On</Button>
+                            <Button x:Name="MusicSoundOff" Margin="5" Width="100" Background="DarkBlue" Foreground="BlanchedAlmond" Click="MusicSoundOff_Click">Off</Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Music Volume:"/></TextBlock>
+                            <Slider x:Name="MusicVolumeSlider" Foreground="Cyan" Width="210" Margin="5" ValueChanged="MusicVolumeSlider_ValueChanged" TickPlacement="BottomRight" TickFrequency="0.1" IsSnapToTickEnabled="True" Minimum="0" Maximum="1" LargeChange="0.2"/>
+                            <TextBlock x:Name="MusicVolumeReadout" Text="{Binding ElementName=bgmusic.Volume, Path=Value, StringFormat=N0, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50"/>
+                        </StackPanel>
+                        <Button Click="PlayIntroMusic" Style="{StaticResource MenuButton}">Play Intro</Button>
+                        <Button Click="RandomSFX" Style="{StaticResource MenuButton}">Play FX</Button>
                     </StackPanel>
                 </ScrollViewer>
                 <Button Style="{StaticResource AnswerButton}" Click="CloseOptions" VerticalAlignment="Bottom" Grid.Row="1">Return to Start</Button>
@@ -255,7 +266,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Correct!" Foreground="Green" FontSize="50" FontWeight="Bold" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <StackPanel>
+                    <TextBlock Text="Correct!" Foreground="Green" FontSize="50" FontWeight="Bold" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
             </Grid>
         </Border>
 
