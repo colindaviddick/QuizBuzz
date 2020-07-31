@@ -27,20 +27,6 @@ namespace QuizBuzz
                 MessageBox.Show("Fail");
                 return scoresPool;
             }
-            //    < PlayerScoreBoard >
-            //        < PlayerScore >
-            //            < PlayerName > Dada </ PlayerName >
-            //            < Score > General Knowledge </ Score >
-            //            < Category > General Knowledge </ Category >
-            //            < PlayerScore > 07 / 06 / 2020 03:13:09 </ PlayerScore >
-            //        </ PlayerScore >
-            //        < PlayerScore >
-            //           < PlayerName > Colin </ PlayerName >
-            //           < Score > General Knowledge </ Score >
-            //           < Category > General Knowledge </ Category >               
-            //           < PlayerScore > 07 / 06 / 2020 03:13:03 </ PlayerScore >
-            //       </ PlayerScore >
-            //   </ PlayerScoreBoard >
 
             foreach (XmlNode s in scores)
             {

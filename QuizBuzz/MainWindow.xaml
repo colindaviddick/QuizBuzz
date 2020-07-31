@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizBuzz"
         mc:Ignorable="d"
-        Title="Quiz Buzz" Height="720" Width="1024" Background="#FF4DA6B4" ResizeMode="CanResizeWithGrip" WindowState="Maximized">
+        Title="Quiz Buzz" Height="480" Width="640" Background="#FF4DA6B4" ResizeMode="CanResizeWithGrip" WindowState="Maximized">
     <Window.Resources>
         <XmlDataProvider x:Key="ScoresData"
-                   Source="Scores.xml"
+                   Source="Scores/Scores.xml"
                    XPath="PlayerScoreBoard" />
 
         <Style TargetType="TextBlock" x:Key="Question">
@@ -72,14 +72,14 @@
         <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Source="images/hex.png" Stretch="UniformToFill" Opacity="0.4"></Image>
         <!--HEADER-->
         <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="100" Style="{StaticResource UI}">
-            <TextBlock Foreground="BlanchedAlmond" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center">QuizBuzz</TextBlock>
+            <TextBlock x:Name="GameTitle" Foreground="BlanchedAlmond" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center">QuizBuzz</TextBlock>
         </Border>
 
         <!--SCORE & CATEGORY-->
         <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="150" Height="80" Style="{StaticResource UI}">
-            
-                <TextBlock x:Name="CategoryLabel" Foreground="BlanchedAlmond" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">General Knowledge</TextBlock>
-            
+
+            <TextBlock x:Name="CategoryLabel" Foreground="BlanchedAlmond" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">General Knowledge</TextBlock>
+
         </Border>
 
         <!--TIMER-->
@@ -90,6 +90,7 @@
         <!--GAME MENU-->
         <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="150" Style="{StaticResource UI}">
             <StackPanel x:Name="GameMenu">
+                <TextBlock x:Name="TimerDisplay" Text="Timer" Style="{StaticResource Question}"/>
                 <Button Style="{StaticResource MenuButton}" Click="NewGame">New Game</Button>
                 <Button Style="{StaticResource MenuButton}" Click="OptionsMenuOpen">Options</Button>
                 <Button Style="{StaticResource MenuButton}" Click="ShowScoresPageClick">Scores</Button>
@@ -100,35 +101,37 @@
 
         <!--START PAGE-->
         <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
-                    <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Number Of Questions :</TextBlock>
-                    <ComboBox x:Name="NumberOfQuestionsSelect" Width="120" Height="25" Margin="10" SelectedIndex="1">
-                        <ComboBoxItem Selected="Questions_5">5</ComboBoxItem>
-                        <ComboBoxItem Selected="Questions_10">10</ComboBoxItem>
-                        <ComboBoxItem Selected="Questions_20">20</ComboBoxItem>
-                        <ComboBoxItem Selected="Questions_30">30</ComboBoxItem>
-                        <ComboBoxItem Selected="Questions_50">50</ComboBoxItem>
-                    </ComboBox>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" ClipToBounds="True">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
+                        <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Number Of Questions :</TextBlock>
+                        <ComboBox x:Name="NumberOfQuestionsSelect" Width="120" Height="25" Margin="10" SelectedIndex="1">
+                            <ComboBoxItem Selected="Questions_5">5</ComboBoxItem>
+                            <ComboBoxItem Selected="Questions_10">10</ComboBoxItem>
+                            <ComboBoxItem Selected="Questions_20">20</ComboBoxItem>
+                            <ComboBoxItem Selected="Questions_30">30</ComboBoxItem>
+                            <ComboBoxItem Selected="Questions_50">50</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
+                        <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Select a theme :</TextBlock>
+                        <ComboBox x:Name="CategorySelect" Width="120" Height="25" Margin="10" SelectedIndex="0">
+                            <ComboBoxItem x:Name="Gn" Selected="General_Knowledge">All (General Knowledge)</ComboBoxItem>
+                            <ComboBoxItem x:Name="Fo" Selected="Food">Food &amp; Drink</ComboBoxItem>
+                            <ComboBoxItem x:Name="Ge" Selected="Geography">Geography</ComboBoxItem>
+                            <ComboBoxItem x:Name="Hi" Selected="History">History</ComboBoxItem>
+                            <ComboBoxItem x:Name="Mo" Selected="Movies">Movies</ComboBoxItem>
+                            <ComboBoxItem x:Name="Mu" Selected="Music">Music</ComboBoxItem>
+                            <ComboBoxItem x:Name="NW" Selected="Natural_World">Natural World</ComboBoxItem>
+                            <ComboBoxItem x:Name="Sc" Selected="Science">Science</ComboBoxItem>
+                            <ComboBoxItem x:Name="Sp" Selected="Sport">Sports</ComboBoxItem>
+                            <ComboBoxItem x:Name="Tv" Selected="TV">TV</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <TextBlock TextWrapping="Wrap" Width="300" Foreground="Yellow">If you select a category with less questions than you have asked for, the game will crash when the questions run out.</TextBlock>
+                    <Button Style="{StaticResource AnswerButton}" Click="StartGame">Start</Button>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
-                    <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" VerticalAlignment="Center">Select a theme :</TextBlock>
-                    <ComboBox x:Name="CategorySelect" Width="120" Height="25" Margin="10" SelectedIndex="0">
-                        <ComboBoxItem x:Name="Gn" Selected="General_Knowledge">All (General Knowledge)</ComboBoxItem>
-                        <ComboBoxItem x:Name="Fo" Selected="Food">Food &amp; Drink</ComboBoxItem>
-                        <ComboBoxItem x:Name="Ge" Selected="Geography">Geography</ComboBoxItem>
-                        <ComboBoxItem x:Name="Hi" Selected="History">History</ComboBoxItem>
-                        <ComboBoxItem x:Name="Mo" Selected="Movies">Movies</ComboBoxItem>
-                        <ComboBoxItem x:Name="Mu" Selected="Music">Music</ComboBoxItem>
-                        <ComboBoxItem x:Name="NW" Selected="Natural_World">Natural World</ComboBoxItem>
-                        <ComboBoxItem x:Name="Sc" Selected="Science">Science</ComboBoxItem>
-                        <ComboBoxItem x:Name="Sp" Selected="Sport">Sports</ComboBoxItem>
-                        <ComboBoxItem x:Name="Tv" Selected="TV">TV</ComboBoxItem>
-                    </ComboBox>
-                </StackPanel>
-                <TextBlock TextWrapping="Wrap" Width="300" Foreground="Yellow">If you select a category with less questions than you have asked for, the game will crash when the questions run out.</TextBlock>
-                <Button Style="{StaticResource AnswerButton}" Click="StartGame">Start</Button>
-            </StackPanel>
+            </ScrollViewer>
         </Border>
 
         <!--SCORES PAGE-->
@@ -236,7 +239,7 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="65"/>
                 </Grid.RowDefinitions>
-                        <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" Grid.Row="0">About QuizBuzz</TextBlock>
+                <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center" Grid.Row="0">About QuizBuzz</TextBlock>
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                     <StackPanel VerticalAlignment="Stretch" Grid.Row="1">
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
@@ -250,7 +253,7 @@
                             <TextBlock Style="{StaticResource Question}" HorizontalAlignment="Center"><Hyperlink NavigateUri="mailto:colindaviddick@gmail.com?subject=Copyright+Issues+With+QuizBuzz&amp;" 
                                                                                                                                
                                                                                                                                RequestNavigate="Hyperlink_RequestNavigate">colindaviddick@gmail.com</Hyperlink>
-                        </TextBlock>
+                            </TextBlock>
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
@@ -266,9 +269,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <StackPanel>
-                    <TextBlock Text="Correct!" Foreground="Green" FontSize="50" FontWeight="Bold" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </StackPanel>
+                <TextBlock Text="Correct!" Foreground="Green" FontSize="50" FontWeight="Bold" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
         </Border>
 
@@ -286,26 +287,28 @@
 
         <!--QUESTION BOARD-->
         <Border x:Name="QuestionBoard" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                </Grid.RowDefinitions>
-                <TextBlock x:Name="QuestionNumberIndicator" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Style="{StaticResource Question}">Random Text for testing</TextBlock>
-                <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto">
-                    <TextBlock x:Name="QuestionText" Style="{StaticResource Question}">Random Text for testing</TextBlock>
-                </ScrollViewer>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="QuestionNumberIndicator" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Style="{StaticResource Question}" TextWrapping="Wrap">Random Text for testing</TextBlock>
+                    <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="QuestionText" Style="{StaticResource Question}" TextWrapping="Wrap">Random Text for testing</TextBlock>
+                    </ScrollViewer>
                     <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button1Clicked">Top Left</Button>
                     <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton2" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button2Clicked">Bottom Left</Button>
                     <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton3" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Button3Clicked">Top Right</Button>
                     <Button Style="{StaticResource AnswerButton}" x:Name="AnswerButton4" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button4Clicked">Bottom Right</Button>
-            </Grid>
+                </Grid>
+            </ScrollViewer>
         </Border>
     </Grid>
 </Window>

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Media;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -41,19 +43,17 @@ namespace QuizBuzz
         // Disable the possibility of double clicking... 
 
         readonly MediaPlayer mp = new MediaPlayer();
-        MediaPlayer bgmusic = new MediaPlayer();
+        readonly MediaPlayer bgmusic = new MediaPlayer();
         public QuestionLoader questionManager = new QuestionLoader();
         public GameManager gm = new GameManager();
         public bool button1;
         public bool button2;
         public bool button3;
         public bool button4;
-        readonly string correctSoundFilePath = "Correct.wav";
-        readonly string incorrectSoundFilePath = "Incorrect.wav";
-        readonly string introSoundFilePath = "Intro.wav";
+        readonly string correctSoundFilePath = @"Sounds\Correct.wav";
+        readonly string incorrectSoundFilePath = @"Sounds\Incorrect.wav";
+        readonly string introSoundFilePath = @"Sounds\Intro.wav";
         bool gameInProgress = false;
-        bool musicPlaying = false;
-
         readonly Random r = new Random();
 
         public List<Question> gnQuestionPool = new List<Question>();
@@ -67,9 +67,7 @@ namespace QuizBuzz
         public List<Question> tvQuestionPool = new List<Question>();
         public List<Question> foodQuestionPool = new List<Question>();
 
-
         // Push Category information to Gm.Category. Don't store it in main memory.
-
 
         public MainWindow()
         {
@@ -116,21 +114,17 @@ namespace QuizBuzz
             {
                 IncorrectPage.Visibility = Visibility.Hidden;
             }
-
         }
-
-
 
         public async void MusicLoop()
         {
 
-            bgmusic.Open(new Uri("BGLoop.wav", UriKind.RelativeOrAbsolute));
+            bgmusic.Open(new Uri(@"Sounds\BGLoop.wav", UriKind.RelativeOrAbsolute));
             bgmusic.MediaEnded += new EventHandler(Media_Ended);
             bgmusic.Play();
 
             return;
         }
-
         private async void Media_Ended(object sender, EventArgs e)
         {
             bgmusic.Position = TimeSpan.Zero;
@@ -225,7 +219,6 @@ namespace QuizBuzz
             scoreDisplay.Text = gm.Score.ToString();
             gameInProgress = true;
             DisplayQuestionCountIndicator();
-
         }
 
         void DisplayCategory()
@@ -600,15 +593,15 @@ namespace QuizBuzz
             if (UsernameBox.Text != "" && UsernameBox != null)
             {
                 Score sc = new Score();
-                if (gm.Percentage == 100)
+                if (gm.Percentage > 95)
                 {
                     sc.Award = "images/GoldTrophy.png";
                 }
-                else if (gm.Percentage >= 90)
+                else if (gm.Percentage >= 85)
                 {
                     sc.Award = "images/SilverTrophy.png";
                 }
-                else if (gm.Percentage >= 80)
+                else if (gm.Percentage >= 70)
                 {
                     sc.Award = "images/BronzeTrophy.png";
                 }
@@ -621,14 +614,14 @@ namespace QuizBuzz
                     sc.Award = "";
                 }
 
-                if (!File.Exists(@"Scores.xml"))
+                if (!File.Exists(@"Scores\Scores.xml"))
                 {
                     XmlWriterSettings xmlWriterSettings = new XmlWriterSettings
                     {
                         Indent = true,
                         NewLineOnAttributes = true
                     };
-                    using (XmlWriter xmlWriter = XmlWriter.Create(@"Scores.xml", xmlWriterSettings))
+                    using (XmlWriter xmlWriter = XmlWriter.Create(@"Scores\Scores.xml", xmlWriterSettings))
                     {
                         xmlWriter.WriteStartDocument();
                         xmlWriter.WriteStartElement("PlayerScoreBoard");
@@ -650,7 +643,7 @@ namespace QuizBuzz
                 }
                 else
                 {
-                    XDocument xDocument = XDocument.Load(@"Scores.xml");
+                    XDocument xDocument = XDocument.Load(@"Scores\Scores.xml");
                     XElement root = xDocument.Element("PlayerScoreBoard");
                     IEnumerable<XElement> rows = root.Descendants("PlayerScore");
 
@@ -659,13 +652,23 @@ namespace QuizBuzz
                        new XElement("PlayerScore",
                        new XElement("PlayerName", UsernameBox.Text),
                        new XElement("Award", sc.Award),
-                    new XElement("Score", (gm.Percentage + "% (" + gm.Score.ToString() + " out of " + gm.NumberOfGameQuestions + ")")),
-                    new XElement("Category", gm.Category),
+                       new XElement("Score", (gm.Percentage + "% (" + gm.Score.ToString() + " out of " + gm.NumberOfGameQuestions + ")")),
+                       new XElement("Category", gm.Category),
                        new XElement("Date", DateTime.Now.ToString("dd/MM/yyyy")),
                        new XElement("Time", DateTime.Now.ToString("HH:mm"))
                        ));
 
-                    xDocument.Save(@"Scores.xml");
+                    try
+                    {
+                        xDocument.Save(@"Scores\Scores.xml", SaveOptions.OmitDuplicateNamespaces);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("There was an error when saving score data: ", e.ToString());
+                        throw;
+                    }
+                    
+                    
                 }
                 XmlDataProvider xmlDataProvider = this.Resources["ScoresData"] as XmlDataProvider;
                 xmlDataProvider.Refresh();
@@ -678,6 +681,7 @@ namespace QuizBuzz
 
 
         }
+
         private void ShowScoresPageClick(object sender, RoutedEventArgs e)
         {
             ShowScoresPage();
@@ -726,7 +730,61 @@ namespace QuizBuzz
 
         private void StartGame(object sender, RoutedEventArgs e)
         {
-            ResetGame();
+            int qCompare;
+
+            if (gm.Category.Contains("Music"))
+            {
+                 qCompare = musicQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("Movies"))
+            {
+                 qCompare = movieQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("Geography"))
+            {
+                 qCompare = geographyQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("History"))
+            {
+                 qCompare = historyQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("TV"))
+            {
+                 qCompare = tvQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("Sport"))
+            {
+                 qCompare = sportQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("Natural"))
+            {
+                 qCompare = naturalWorldQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("Science"))
+            {
+                 qCompare = scienceQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("General Knowledge"))
+            {
+                 qCompare = gnQuestionPool.Count();
+            }
+            else if (gm.Category.Contains("Food"))
+            {
+                 qCompare = foodQuestionPool.Count();
+            }
+            else
+            {
+                qCompare = gnQuestionPool.Count();
+            }
+
+            if(qCompare < gm.NumberOfGameQuestions)
+            {
+                MessageBox.Show(("Not enough questions in the " + gm.Category + " question pool to play a " + gm.NumberOfGameQuestions.ToString() + " question game. Select less questions or choose a different category."), "Game creation error!");
+            }
+            else
+            {
+                ResetGame();
+            }
         }
 
         public void SliderReadoutChanged()
@@ -773,16 +831,16 @@ namespace QuizBuzz
             bgmusic.Volume = MusicVolumeSlider.Value;
             MusicVolumeReadoutChanged();
         }
+
         private void MusicVolumeReadoutChanged()
         {
             MusicVolumeReadout.Text = ((MusicVolumeSlider.Value * 100).ToString() + "%");
         }
 
-
         private void PlayRandomSoundFX()
         {
             int rInt = r.Next(0, 100);
-            if(rInt % 2 == 0)
+            if (rInt % 2 == 0)
             {
                 mp.Open(new Uri(correctSoundFilePath, UriKind.RelativeOrAbsolute));
                 mp.Play();
@@ -792,12 +850,13 @@ namespace QuizBuzz
                 mp.Open(new Uri(incorrectSoundFilePath, UriKind.RelativeOrAbsolute));
                 mp.Play();
             }
-                
+
         }
 
         private void RandomSFX(object sender, RoutedEventArgs e)
         {
             PlayRandomSoundFX();
         }
+
     }
 }

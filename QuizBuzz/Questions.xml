@@ -3394,7 +3394,7 @@
     <Category>History, General Knowledge</Category>
   </Module>
   <Module>
-    <Question>Which fruit' was no longer imported after 1940?</Question>
+    <Question>Which fruit was no longer imported after 1940?</Question>
     <CorrectAnswer>Bananas</CorrectAnswer>
     <IncorrectAnswer1>Kiwi Fruit</IncorrectAnswer1>
     <IncorrectAnswer2>Peaches</IncorrectAnswer2>
@@ -6507,92 +6507,428 @@
     <IncorrectAnswer3>Softer wool</IncorrectAnswer3>
     <Category>Science, General Knowledge</Category>
   </Module>
+  <Module>
+    <Question>Which girl group performed during the opening minutes of Channel 5’s launch in 1997 in the UK?</Question>
+    <CorrectAnswer>The Spice Girls</CorrectAnswer>
+    <IncorrectAnswer1>Eternal</IncorrectAnswer1>
+    <IncorrectAnswer2>En Vogue</IncorrectAnswer2>
+    <IncorrectAnswer3>B*Witched</IncorrectAnswer3>
+    <Category>TV, Music, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In what year did Coronation Street first air on ITV?</Question>
+    <CorrectAnswer>1960</CorrectAnswer>
+    <IncorrectAnswer1>1965</IncorrectAnswer1>
+    <IncorrectAnswer2>1966</IncorrectAnswer2>
+    <IncorrectAnswer3>1970</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>How many episodes of Game of Thrones are there?</Question>
+    <CorrectAnswer>73</CorrectAnswer>
+    <IncorrectAnswer1>70</IncorrectAnswer1>
+    <IncorrectAnswer2>75</IncorrectAnswer2>
+    <IncorrectAnswer3>77</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the highest-rated TV series on the IMDB Top 250 TV series list?</Question>
+    <CorrectAnswer>Breaking Bad</CorrectAnswer>
+    <IncorrectAnswer1>Game of Thrones</IncorrectAnswer1>
+    <IncorrectAnswer2>Friends</IncorrectAnswer2>
+    <IncorrectAnswer3>Band of Brothers</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which British TV show recorded the largest audience for a single episode with over 30 million viewers?</Question>
+    <CorrectAnswer>Eastenders</CorrectAnswer>
+    <IncorrectAnswer1>Coronation Street</IncorrectAnswer1>
+    <IncorrectAnswer2>Gladiators</IncorrectAnswer2>
+    <IncorrectAnswer3>Who Wants To Be A Millionaire</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Where is Strictly Come Dancing filmed?</Question>
+    <CorrectAnswer>Elstree Studios</CorrectAnswer>
+    <IncorrectAnswer1>Bottle Yard Studios</IncorrectAnswer1>
+    <IncorrectAnswer2>Birmingham Indoor Arena</IncorrectAnswer2>
+    <IncorrectAnswer3>Teddington Studios</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In what year did long-running children’s programme Blue Peter first broadcast in the UK?</Question>
+    <CorrectAnswer>1958</CorrectAnswer>
+    <IncorrectAnswer1>1960</IncorrectAnswer1>
+    <IncorrectAnswer2>1955</IncorrectAnswer2>
+    <IncorrectAnswer3>1952</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who played Rodney Trotter in Only Fools and Horses?</Question>
+    <CorrectAnswer>Nicholas Lyndhurst</CorrectAnswer>
+    <IncorrectAnswer1>David Jason</IncorrectAnswer1>
+    <IncorrectAnswer2>John Challis</IncorrectAnswer2>
+    <IncorrectAnswer3>Roger Lloyd-Pack</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which actor portrayed Inspector Morse?</Question>
+    <CorrectAnswer>John Thaw</CorrectAnswer>
+    <IncorrectAnswer1>Idris Elba</IncorrectAnswer1>
+    <IncorrectAnswer2>Robbie Coltraine</IncorrectAnswer2>
+    <IncorrectAnswer3>Nick Berry</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Name the creators of Stranger Things</Question>
+    <CorrectAnswer>The Duffer Brothers</CorrectAnswer>
+    <IncorrectAnswer1>The Coen Brothers</IncorrectAnswer1>
+    <IncorrectAnswer2>The Blues Brothers</IncorrectAnswer2>
+    <IncorrectAnswer3>The Outhere Brothers</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What’s the pub called in Channel 4 soap Hollyoaks?</Question>
+    <CorrectAnswer>The Dog in the Pond</CorrectAnswer>
+    <IncorrectAnswer1>The Dog and Duck</IncorrectAnswer1>
+    <IncorrectAnswer2>The Dog and Whistle</IncorrectAnswer2>
+    <IncorrectAnswer3>The Dog's Dinner</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who became the first female presenter of Question Time in 2019?</Question>
+    <CorrectAnswer>Fiona Bruce</CorrectAnswer>
+    <IncorrectAnswer1>Amanda Holden</IncorrectAnswer1>
+    <IncorrectAnswer2>Anna Richardson</IncorrectAnswer2>
+    <IncorrectAnswer3>Tess Daly</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who's voice is provided by Nancy Cartwright?</Question>
+    <CorrectAnswer>Bart Simpson (The Simpsons)</CorrectAnswer>
+    <IncorrectAnswer1>Eliza Thornberry (The Wild Thornberrys)</IncorrectAnswer1>
+    <IncorrectAnswer2>Meg Griffin (Family Guy)</IncorrectAnswer2>
+    <IncorrectAnswer3>Piglet (Winnie The Pooh)</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the name of Rene’s wife in ‘Allo ‘Allo?</Question>
+    <CorrectAnswer>Edith</CorrectAnswer>
+    <IncorrectAnswer1>Alma</IncorrectAnswer1>
+    <IncorrectAnswer2>Agnes</IncorrectAnswer2>
+    <IncorrectAnswer3>Ruby</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who does the voiceover on Love Island?</Question>
+    <CorrectAnswer>Iain Stirling</CorrectAnswer>
+    <IncorrectAnswer1>Des Clarke</IncorrectAnswer1>
+    <IncorrectAnswer2>Dave Berry</IncorrectAnswer2>
+    <IncorrectAnswer3>Daniel Sloss</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In which fictional town is Netflix show Stranger Things primarily set?</Question>
+    <CorrectAnswer>Hawkins, Indiana</CorrectAnswer>
+    <IncorrectAnswer1>Harper, Indiane</IncorrectAnswer1>
+    <IncorrectAnswer2>Holden, Indiana</IncorrectAnswer2>
+    <IncorrectAnswer3>Harkness, Indiana</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the capital of Westeros in Game of Thrones?</Question>
+    <CorrectAnswer>King’s Landing</CorrectAnswer>
+    <IncorrectAnswer1>Dorne</IncorrectAnswer1>
+    <IncorrectAnswer2>Braavos</IncorrectAnswer2>
+    <IncorrectAnswer3>Karhold</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the name of the prison in the popular BBC sitcom Porridge starring Ronnie Barker?</Question>
+    <CorrectAnswer>HMP Slade</CorrectAnswer>
+    <IncorrectAnswer1>HMP Mud</IncorrectAnswer1>
+    <IncorrectAnswer2>HMP T-Rex</IncorrectAnswer2>
+    <IncorrectAnswer3>HMP Sweet</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which well-known Welsh village was the primary set for the 1960s TV show The Prisoner?</Question>
+    <CorrectAnswer>Portmeirion</CorrectAnswer>
+    <IncorrectAnswer1>Merthyr Mawr</IncorrectAnswer1>
+    <IncorrectAnswer2>Beddgelert</IncorrectAnswer2>
+    <IncorrectAnswer3>Llangynidr</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which TV theme begins with the words: “You know we belong together…”</Question>
+    <CorrectAnswer>Home and Away</CorrectAnswer>
+    <IncorrectAnswer1>Neighbours</IncorrectAnswer1>
+    <IncorrectAnswer2>Friends</IncorrectAnswer2>
+    <IncorrectAnswer3>Cheers</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which critically acclaimed US TV drama was set around the fictional Sterling Cooper advertising agency in New York?</Question>
+    <CorrectAnswer>Mad Men</CorrectAnswer>
+    <IncorrectAnswer1>Suits</IncorrectAnswer1>
+    <IncorrectAnswer2>Skins</IncorrectAnswer2>
+    <IncorrectAnswer3>One Tree Hill</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In which fictional town was the sitcom Dad’s Army set?</Question>
+    <CorrectAnswer>Walmington-on-Sea</CorrectAnswer>
+    <IncorrectAnswer1>Walmington-on-Wye</IncorrectAnswer1>
+    <IncorrectAnswer2>Walmington-on-High</IncorrectAnswer2>
+    <IncorrectAnswer3>Walmington Spa</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which comedian and actor plays Alan Partridge?</Question>
+    <CorrectAnswer>Steve Coogan</CorrectAnswer>
+    <IncorrectAnswer1>Harry Enfield</IncorrectAnswer1>
+    <IncorrectAnswer2>Rowan Atkinson</IncorrectAnswer2>
+    <IncorrectAnswer3>Paul Merton</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In which city do Ross and Rachel get married in Friends?</Question>
+    <CorrectAnswer>Las Vegas</CorrectAnswer>
+    <IncorrectAnswer1>London</IncorrectAnswer1>
+    <IncorrectAnswer2>New York</IncorrectAnswer2>
+    <IncorrectAnswer3>Paris</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which UK show has been running since 1953 and is the world’s longest news and current affairs TV programme?</Question>
+    <CorrectAnswer>Panorama</CorrectAnswer>
+    <IncorrectAnswer1>News at 10</IncorrectAnswer1>
+    <IncorrectAnswer2>Points of View</IncorrectAnswer2>
+    <IncorrectAnswer3>Loose Women</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>The following have all presented which TV show? Bruce Forsyth, Larry Grayson, Jim Davidson and Mel &amp; Sue (Mel Giedroyc and Sue Perkins)</Question>
+    <CorrectAnswer>The Generation Game</CorrectAnswer>
+    <IncorrectAnswer1>Play Your Cards Right</IncorrectAnswer1>
+    <IncorrectAnswer2>Big Break</IncorrectAnswer2>
+    <IncorrectAnswer3>The Great British Bake Off</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In 1995, more than 22 million people tuned into a special BBC Panorama interview with Princess Diana. Which journalist conducted the interview?</Question>
+    <CorrectAnswer>Martin Bashir</CorrectAnswer>
+    <IncorrectAnswer1>Jon Snow</IncorrectAnswer1>
+    <IncorrectAnswer2>Roger Cook</IncorrectAnswer2>
+    <IncorrectAnswer3>Kate Adie</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What colour is Thunderbird 2 piloted by Virgil Tracy in Thunderbirds?</Question>
+    <CorrectAnswer>Green</CorrectAnswer>
+    <IncorrectAnswer1>Blue</IncorrectAnswer1>
+    <IncorrectAnswer2>Red</IncorrectAnswer2>
+    <IncorrectAnswer3>Yello</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What was the first full programme to be shown on Channel 4 on the afternoon of its launch in 1982?</Question>
+    <CorrectAnswer>Countdown</CorrectAnswer>
+    <IncorrectAnswer1>The Body Show</IncorrectAnswer1>
+    <IncorrectAnswer2>Brookside </IncorrectAnswer2>
+    <IncorrectAnswer3>The People’s Court</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who presented TV quiz Blockbusters between 1983 and 1995?</Question>
+    <CorrectAnswer>Bob Holness</CorrectAnswer>
+    <IncorrectAnswer1>Bob Carolgees</IncorrectAnswer1>
+    <IncorrectAnswer2>Bob Monkhouse</IncorrectAnswer2>
+    <IncorrectAnswer3>Bob Mortimer</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which member of The Beatles narrated the first series of Thomas the Tank Engine on TV?</Question>
+    <CorrectAnswer>Ringo Starr</CorrectAnswer>
+    <IncorrectAnswer1>John Lennon</IncorrectAnswer1>
+    <IncorrectAnswer2>Paul McCartney</IncorrectAnswer2>
+    <IncorrectAnswer3>George Harrison</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who plays Eleven in Stranger Things?</Question>
+    <CorrectAnswer>Millie Bobby Brown</CorrectAnswer>
+    <IncorrectAnswer1>Natalia Dyer</IncorrectAnswer1>
+    <IncorrectAnswer2>Sadie Sink</IncorrectAnswer2>
+    <IncorrectAnswer3>Winona Ryder</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who co-created hit US sitcom Seinfeld with Jerry Seinfeld?</Question>
+    <CorrectAnswer>Larry David</CorrectAnswer>
+    <IncorrectAnswer1>Chevy Chase</IncorrectAnswer1>
+    <IncorrectAnswer2>Chuck Lorre</IncorrectAnswer2>
+    <IncorrectAnswer3>Louis CK</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Friends ended in May 2004 after how many seasons?</Question>
+    <CorrectAnswer>Ten</CorrectAnswer>
+    <IncorrectAnswer1>Nine</IncorrectAnswer1>
+    <IncorrectAnswer2>Eleven</IncorrectAnswer2>
+    <IncorrectAnswer3>Twelve</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the main pub called in Peaky Blinders where the Shelby’s meet?</Question>
+    <CorrectAnswer>The Garrison Tavern</CorrectAnswer>
+    <IncorrectAnswer1>The Rovers Return</IncorrectAnswer1>
+    <IncorrectAnswer2>The Queen Vic</IncorrectAnswer2>
+    <IncorrectAnswer3>The Winchester</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Long-running ITV police drama The Bill was set in which fictional suburb?</Question>
+    <CorrectAnswer>Sun Hill</CorrectAnswer>
+    <IncorrectAnswer1>Moon Hill</IncorrectAnswer1>
+    <IncorrectAnswer2>Moon River</IncorrectAnswer2>
+    <IncorrectAnswer3>Sun River</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who starred with Adrian Edmondson in anarchic hit Bottom</Question>
+    <CorrectAnswer>Rik Mayall</CorrectAnswer>
+    <IncorrectAnswer1>Rowan Atkinson</IncorrectAnswer1>
+    <IncorrectAnswer2>Stephen Fry</IncorrectAnswer2>
+    <IncorrectAnswer3>Tony Robbins</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Who played Queen Elizabeth II in the first two seasons of The Crown?</Question>
+    <CorrectAnswer>Claire Foy</CorrectAnswer>
+    <IncorrectAnswer1>Emily Blunt</IncorrectAnswer1>
+    <IncorrectAnswer2>Emily Watson</IncorrectAnswer2>
+    <IncorrectAnswer3>Emily Mortimer</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which TV show features Miranda Hobbes and Samantha Jones?</Question>
+    <CorrectAnswer>Sex and the City</CorrectAnswer>
+    <IncorrectAnswer1>Friends</IncorrectAnswer1>
+    <IncorrectAnswer2>Coupling</IncorrectAnswer2>
+    <IncorrectAnswer3>The OC</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Ant and Dec first worked together on which children’s TV drama?</Question>
+    <CorrectAnswer>Byker Grove</CorrectAnswer>
+    <IncorrectAnswer1>Tracy Beaker</IncorrectAnswer1>
+    <IncorrectAnswer2>Grange Hill</IncorrectAnswer2>
+    <IncorrectAnswer3>Rentaghost</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Amy Poehler, Rob Lowe and Chris Pratt worked together on which US comedy series?</Question>
+    <CorrectAnswer>Parks and Recreation</CorrectAnswer>
+    <IncorrectAnswer1>Community</IncorrectAnswer1>
+    <IncorrectAnswer2>Curb Your Enthusiasm</IncorrectAnswer2>
+    <IncorrectAnswer3>The Big Bang Theory</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which entertainment show featured the phrase, ‘Tonight Matthew, I’m going to be…’?</Question>
+    <CorrectAnswer>Stars In Their Eyes</CorrectAnswer>
+    <IncorrectAnswer1>The X Factor</IncorrectAnswer1>
+    <IncorrectAnswer2>Pop Idol</IncorrectAnswer2>
+    <IncorrectAnswer3>Opportunity Knocks</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which US comedy actress created the Netflix show, The Unbreakable Kimmy Schmidt?</Question>
+    <CorrectAnswer>Tina Fey</CorrectAnswer>
+    <IncorrectAnswer1>Amy Poehler</IncorrectAnswer1>
+    <IncorrectAnswer2>Amy Schumer</IncorrectAnswer2>
+    <IncorrectAnswer3>Melissa McCarthy</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which Cold Feet character died in a shock car crash?</Question>
+    <CorrectAnswer>Rachel</CorrectAnswer>
+    <IncorrectAnswer1>Adam</IncorrectAnswer1>
+    <IncorrectAnswer2>Pete</IncorrectAnswer2>
+    <IncorrectAnswer3>Jenny</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Name Casualty’s longest-serving character.</Question>
+    <CorrectAnswer>Charlie Fairhead</CorrectAnswer>
+    <IncorrectAnswer1>Connie Beauchamp</IncorrectAnswer1>
+    <IncorrectAnswer2>Noel Garcia</IncorrectAnswer2>
+    <IncorrectAnswer3>Dylan Keogh</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>What is the name of Miranda Hart’s best friend in her hit sitcom?</Question>
+    <CorrectAnswer>Stevie</CorrectAnswer>
+    <IncorrectAnswer1>Davie</IncorrectAnswer1>
+    <IncorrectAnswer2>Robbie</IncorrectAnswer2>
+    <IncorrectAnswer3>Winnie</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which singing competition was the first to feature Simon Cowell as a judge?</Question>
+    <CorrectAnswer>Pop Idol</CorrectAnswer>
+    <IncorrectAnswer1>Stars In Their Eyes</IncorrectAnswer1>
+    <IncorrectAnswer2>X Factor</IncorrectAnswer2>
+    <IncorrectAnswer3>Britain's Got Talen</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which of these Doctors has appeared in The Vicar of Dibley?</Question>
+    <CorrectAnswer>Peter Capaldi</CorrectAnswer>
+    <IncorrectAnswer1>Matt Smith</IncorrectAnswer1>
+    <IncorrectAnswer2>David Tennent</IncorrectAnswer2>
+    <IncorrectAnswer3>Jodie Whittaker</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In the TV show Hustle, who played lead character Mickey “Bricks” Stone?</Question>
+    <CorrectAnswer>Adrian Lester</CorrectAnswer>
+    <IncorrectAnswer1>Robert Glenister</IncorrectAnswer1>
+    <IncorrectAnswer2>Robert Vaugn</IncorrectAnswer2>
+    <IncorrectAnswer3>Marc Warren</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Cop drama Life on Mars is named after a song by which musician?</Question>
+    <CorrectAnswer>David Bowie</CorrectAnswer>
+    <IncorrectAnswer1>Elton John</IncorrectAnswer1>
+    <IncorrectAnswer2>Freddie Mercury</IncorrectAnswer2>
+    <IncorrectAnswer3>Alvin Stardust</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In sci-fi series Black Mirror, which song regularly appears in different stories?</Question>
+    <CorrectAnswer>Anyone Who Knows What Love Is (Will Understand) by Irma Thomas</CorrectAnswer>
+    <IncorrectAnswer1>A.M. 180 by Grandaddy</IncorrectAnswer1>
+    <IncorrectAnswer2>Time Is The Enemy by Quantic</IncorrectAnswer2>
+    <IncorrectAnswer3>Some Riot by Elbow</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>Which program's first episode was hosted by Jeremy Clarkson, Richard Hammond and Jason Dawe?</Question>
+    <CorrectAnswer>Top Gear</CorrectAnswer>
+    <IncorrectAnswer1>TFI Friday</IncorrectAnswer1>
+    <IncorrectAnswer2>Noel's House Party</IncorrectAnswer2>
+    <IncorrectAnswer3>The Big Breakfast</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
+  <Module>
+    <Question>In what year was the Independent Television network, later known as ITV, launched?</Question>
+    <CorrectAnswer>1955</CorrectAnswer>
+    <IncorrectAnswer1>1962</IncorrectAnswer1>
+    <IncorrectAnswer2>1959</IncorrectAnswer2>
+    <IncorrectAnswer3>1964</IncorrectAnswer3>
+    <Category>TV, General Knowledge</Category>
+  </Module>
 </QuestionBlocks>
-
-<!--
-
-What word is given to the part of a fraction above the line?
-It used to be called quicksilver — by what name is this element now known?
-What name is given to a positively charged electron?
-What is deﬁned as mass divided by density?
-Jonas Salk’s 1952 vaccine helped to reduce the suffering caused by which disease?
-What was first demonstrated in a Surrey quarry by scientist Arthur Nobel in 1867?
-Galactose is one of the three main monosaccharides (simple sugars); what are the other two?
-How many faces does a dodecahedron possess? And what 2D shape is each face?
-What anomaly connects bromine and mercury?
-In which direction would Foucault’s pendulum turn if it were erected in Sydney, Australia?
-‘Nitrogen-fixing’ converts nitrogen into which gas (chemical symbol NH3), useful for soil nutrition and food production?
-Crick and Watson discovered that the DNA molecule was what particular shape?
-If the ozone layer were to lie upon the surface of the earth, approximately how thick would it be: 3 mm, 3 cm or 3 m?
-Where, speciﬁcally, did the ﬁrst moon landing take place?
-What is measured in Pascals?
-The British overseas territory Gough Island, part of the Tristan da Cunha group, is a World Heritage wildlife site – in which ocean is it located?
-How many human chromosomes are there?
-Under the same temperature and pressure, all gases contain the same number of molecules; whose law? In which century did he postulate this?
-In the system deﬁned by Henry Moseley, what does the symbol 2 signify in chemistry and physics?
-Who developed, the ﬁrst commercial process for smelting pig iron to manufacture steel?
-
-
-Numerator
-Mercury
-Positron
-Volume
-Salk was the man who formulated the polio vaccine
-Dynamite
-Glucose and fructose
-Twelve, pentagonal
-They are the only elements to take liquid form at ambient temperature
-Anti-clockwise
-Ammonia
-Double helix ( a bit like a 3D figure of eight)
-Only 3 mm, which is why it is so important that is maintained and nurtured
-The Sea of Tranquility
-Pressure, defined as Newtons per metre squared
-South Atlantic
-Forty-six (labelled A-G and then X and Y)
-Avogadro, nineteen century
-The atomic number of an element
-(Henry) Bessemer
-Science Quiz Questions Round IV
-The stirrup, the smallest bone in humans, is found in which part of the body?
-An ohm is a unit that measures what?
-Which four planets of the Solar System have rings?
-The name of which type of rock derives from the Latin for ‘ﬁre’?
-Someone with anosmia is lacking what?
-Which acid is also known as aqua fortis?
-In 2013, Mark Cahill became the ﬁrst Briton to undergo which pioneering medical operation?
-What was the name of theﬁrst Space Shuttle?
-True or false — more than a quarter of the bones in the human body are in the hands?
-The theﬁrst creature to be launched into space was called Laika. What type of animal was Laika?
-In which decade was the world’sﬁrst successful heart transplant carried out?
-Rickets is caused by a deficiency of which vitamin?
-The mobile-phone operating system Android was developed by which company?
-The 19th—century naturalist Charles Darwin was born in which English Midlands town?
-In 2013, which country launched ‘Mangalyaan’, a spacecraft that will orbit Mars?
-Geothermal power is generated using heat energy from what?
-What is the most abundant metal in the ea earth’s crust?
-In underwater navigation, what does the acronym ‘Sonar’ stand for?
-Halley’s comet is visible from earth every how many years?
-How many eyes does a caterpillar have?
-Round IV Answers
-The ear
-Electrical resistance
-Jupiter, Saturn, Uranus, Neptune
-Igneous
-The sense of smell
-Nitric Acid
-A hand transplant
-Columbia
-True
-A dog
-1960’s
-Vitamin D
-Google
-Shrewsbury
-India
-Rocks in the Earth’s crust
-Aluminium
-SOund Navigation And Ranging
-73.3 years
-Twelve
--->

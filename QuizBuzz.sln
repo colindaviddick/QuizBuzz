@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizBuzz", "QuizBuzz\QuizBuzz.csproj", "{5E0D78C7-52B8-4FDB-AB8D-D749E5CB8D9F}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstallQuizbuzz", "InstallQuizbuzz\InstallQuizbuzz.vdproj", "{D019699B-9DB6-4BEC-B242-DC9F8BACDA49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installer", "Installer", "{3C2026EA-9CCC-4EC8-882E-074C6040BFA8}"
+	ProjectSection(SolutionItems) = preProject
+		InstallQuizbuzz\Release\InstallQuizbuzz.msi = InstallQuizbuzz\Release\InstallQuizbuzz.msi
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,8 @@ Global
 		{5E0D78C7-52B8-4FDB-AB8D-D749E5CB8D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E0D78C7-52B8-4FDB-AB8D-D749E5CB8D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E0D78C7-52B8-4FDB-AB8D-D749E5CB8D9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D019699B-9DB6-4BEC-B242-DC9F8BACDA49}.Debug|Any CPU.ActiveCfg = Debug
+		{D019699B-9DB6-4BEC-B242-DC9F8BACDA49}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
