@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -91,6 +92,7 @@ namespace QuizBuzz
                 foodQuestionPool);
             SetVolumeToOne();
             SetCategoryCounts();
+            LoadAllOnlineScoresToList();
         }
 
         private async void AnswerDisplay(bool IsAnswerCorrect)
@@ -116,7 +118,7 @@ namespace QuizBuzz
             }
         }
 
-        public async void MusicLoop()
+        public void MusicLoop()
         {
 
             bgmusic.Open(new Uri(@"Sounds\BGLoop.wav", UriKind.RelativeOrAbsolute));
@@ -125,7 +127,7 @@ namespace QuizBuzz
 
             return;
         }
-        private async void Media_Ended(object sender, EventArgs e)
+        private void Media_Ended(object sender, EventArgs e)
         {
             bgmusic.Position = TimeSpan.Zero;
             bgmusic.Play();
@@ -590,100 +592,69 @@ namespace QuizBuzz
 
         private void SaveScoreAndReturnToStartPage(object sender, RoutedEventArgs e)
         {
-            if (UsernameBox.Text != "" && UsernameBox != null)
+
+            ///
+            /// New information to be edited
+            ///
+            Score sc = new Score();
+            if (gm.Percentage > 95)
             {
-                Score sc = new Score();
-                if (gm.Percentage > 95)
-                {
-                    sc.Award = "images/GoldTrophy.png";
-                }
-                else if (gm.Percentage >= 85)
-                {
-                    sc.Award = "images/SilverTrophy.png";
-                }
-                else if (gm.Percentage >= 70)
-                {
-                    sc.Award = "images/BronzeTrophy.png";
-                }
-                else if (gm.Percentage == 0)
-                {
-                    sc.Award = "images/Poop.png";
-                }
-                else
-                {
-                    sc.Award = "";
-                }
-
-                if (!File.Exists(@"Scores\Scores.xml"))
-                {
-                    XmlWriterSettings xmlWriterSettings = new XmlWriterSettings
-                    {
-                        Indent = true,
-                        NewLineOnAttributes = true
-                    };
-                    using (XmlWriter xmlWriter = XmlWriter.Create(@"Scores\Scores.xml", xmlWriterSettings))
-                    {
-                        xmlWriter.WriteStartDocument();
-                        xmlWriter.WriteStartElement("PlayerScoreBoard");
-
-                        xmlWriter.WriteStartElement("PlayerScore");
-                        xmlWriter.WriteElementString("Award", sc.Award);
-                        xmlWriter.WriteElementString("PlayerName", UsernameBox.Text);
-                        xmlWriter.WriteElementString("Score", (gm.Percentage + "% (" + gm.Score.ToString() + " out of " + gm.NumberOfGameQuestions + ")"));
-                        xmlWriter.WriteElementString("Category", gm.Category);
-                        xmlWriter.WriteElementString("Date", DateTime.Now.ToString("dd/MM/yyyy"));
-                        xmlWriter.WriteElementString("Time", DateTime.Now.ToString("HH:mm"));
-                        xmlWriter.WriteEndElement();
-
-                        xmlWriter.WriteEndElement();
-                        xmlWriter.WriteEndDocument();
-                        xmlWriter.Flush();
-                        xmlWriter.Close();
-                    }
-                }
-                else
-                {
-                    XDocument xDocument = XDocument.Load(@"Scores\Scores.xml");
-                    XElement root = xDocument.Element("PlayerScoreBoard");
-                    IEnumerable<XElement> rows = root.Descendants("PlayerScore");
-
-                    XElement firstRow = rows.First();
-                    firstRow.AddBeforeSelf(
-                       new XElement("PlayerScore",
-                       new XElement("PlayerName", UsernameBox.Text),
-                       new XElement("Award", sc.Award),
-                       new XElement("Score", (gm.Percentage + "% (" + gm.Score.ToString() + " out of " + gm.NumberOfGameQuestions + ")")),
-                       new XElement("Category", gm.Category),
-                       new XElement("Date", DateTime.Now.ToString("dd/MM/yyyy")),
-                       new XElement("Time", DateTime.Now.ToString("HH:mm"))
-                       ));
-
-                    try
-                    {
-                        xDocument.Save(@"Scores\Scores.xml", SaveOptions.OmitDuplicateNamespaces);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("There was an error when saving score data: ", e.ToString());
-                        throw;
-                    }
-                    
-                    
-                }
-                XmlDataProvider xmlDataProvider = this.Resources["ScoresData"] as XmlDataProvider;
-                xmlDataProvider.Refresh();
-                ShowScoresPage();
+                sc.Award = "images/GoldTrophy.png";
+            }
+            else if (gm.Percentage >= 85)
+            {
+                sc.Award = "images/SilverTrophy.png";
+            }
+            else if (gm.Percentage >= 70)
+            {
+                sc.Award = "images/BronzeTrophy.png";
+            }
+            else if (gm.Percentage == 0)
+            {
+                sc.Award = "images/Poop.png";
             }
             else
             {
-                DisplayGameSetup();
+                sc.Award = "";
             }
 
+            try
+            {
+                DB dB = new DB();
+                DataTable dataTable = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
 
+                MySqlCommand mySqlCommand = new MySqlCommand(@"INSERT INTO `QuizBuzzScores`(`Name`, `Score`, `Topic`, `Percentage`, `Date`, `Time`, `Award`)
+                  VALUES (@Name, @Score, @Topic, @Percentage, @Date, @Time, @Award)", dB.GetConnection());
+
+                mySqlCommand.Parameters.Add("@Name", MySqlDbType.VarChar).Value = UsernameBox.Text;
+                mySqlCommand.Parameters.Add("@Score", MySqlDbType.Int32).Value = gm.Score;
+                mySqlCommand.Parameters.Add("@Topic", MySqlDbType.VarChar).Value = gm.Category;
+                mySqlCommand.Parameters.Add("@Percentage", MySqlDbType.VarChar).Value = gm.Percentage;
+                mySqlCommand.Parameters.Add("@Date", MySqlDbType.VarChar).Value = DateTime.Now.ToString("dd/MM/yyyy");
+                mySqlCommand.Parameters.Add("@Time", MySqlDbType.VarChar).Value = DateTime.Now.ToString("hh:mm tt");
+                mySqlCommand.Parameters.Add("@Award", MySqlDbType.VarChar).Value = sc.Award;
+
+                adapter.SelectCommand = mySqlCommand;
+
+                adapter.Fill(dataTable);
+                MessageBox.Show("Score saved!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("This operation failed.");
+                throw;
+            }
+            finally
+            {
+                LoadAllOnlineScoresToList();
+                ShowScoresPage();
+            }
         }
 
         private void ShowScoresPageClick(object sender, RoutedEventArgs e)
         {
+            LoadAllOnlineScoresToList();
             ShowScoresPage();
         }
 
@@ -734,50 +705,50 @@ namespace QuizBuzz
 
             if (gm.Category.Contains("Music"))
             {
-                 qCompare = musicQuestionPool.Count();
+                qCompare = musicQuestionPool.Count();
             }
             else if (gm.Category.Contains("Movies"))
             {
-                 qCompare = movieQuestionPool.Count();
+                qCompare = movieQuestionPool.Count();
             }
             else if (gm.Category.Contains("Geography"))
             {
-                 qCompare = geographyQuestionPool.Count();
+                qCompare = geographyQuestionPool.Count();
             }
             else if (gm.Category.Contains("History"))
             {
-                 qCompare = historyQuestionPool.Count();
+                qCompare = historyQuestionPool.Count();
             }
             else if (gm.Category.Contains("TV"))
             {
-                 qCompare = tvQuestionPool.Count();
+                qCompare = tvQuestionPool.Count();
             }
             else if (gm.Category.Contains("Sport"))
             {
-                 qCompare = sportQuestionPool.Count();
+                qCompare = sportQuestionPool.Count();
             }
             else if (gm.Category.Contains("Natural"))
             {
-                 qCompare = naturalWorldQuestionPool.Count();
+                qCompare = naturalWorldQuestionPool.Count();
             }
             else if (gm.Category.Contains("Science"))
             {
-                 qCompare = scienceQuestionPool.Count();
+                qCompare = scienceQuestionPool.Count();
             }
             else if (gm.Category.Contains("General Knowledge"))
             {
-                 qCompare = gnQuestionPool.Count();
+                qCompare = gnQuestionPool.Count();
             }
             else if (gm.Category.Contains("Food"))
             {
-                 qCompare = foodQuestionPool.Count();
+                qCompare = foodQuestionPool.Count();
             }
             else
             {
                 qCompare = gnQuestionPool.Count();
             }
 
-            if(qCompare < gm.NumberOfGameQuestions)
+            if (qCompare < gm.NumberOfGameQuestions)
             {
                 MessageBox.Show(("Not enough questions in the " + gm.Category + " question pool to play a " + gm.NumberOfGameQuestions.ToString() + " question game. Select less questions or choose a different category."), "Game creation error!");
             }
@@ -850,7 +821,6 @@ namespace QuizBuzz
                 mp.Open(new Uri(incorrectSoundFilePath, UriKind.RelativeOrAbsolute));
                 mp.Play();
             }
-
         }
 
         private void RandomSFX(object sender, RoutedEventArgs e)
@@ -858,5 +828,327 @@ namespace QuizBuzz
             PlayRandomSoundFX();
         }
 
+        public void LoadAllOnlineScoresToList()
+        {
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+
+
+                // Figure out how to mark latest entry with a marker, and remove the marker from the previous entry
+
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public void LoadFoodOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Food\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public void LoadScienceOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Science\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public void LoadGeneralKnowledgeOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"General Knowledge\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+        public void LoadGeographyOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Geography\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public void LoadHistoryOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"History\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public void LoadMoviesOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Movies\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public void LoadMusicOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Music\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public void LoadNaturalWorldOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Natural World\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public void LoadSportOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Sport\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+        public void LoadTVOnlineScoresToList()
+        {
+
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"TV\" ORDER BY Percentage DESC", conn.GetConnection());
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        private void All_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadAllOnlineScoresToList();
+        }
+
+        private void CB_Science_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadScienceOnlineScoresToList();
+        }
+
+        private void CB_GeneralKnowledge_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadGeneralKnowledgeOnlineScoresToList();
+        }
+
+        private void CB_Geography_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadGeographyOnlineScoresToList();
+        }
+
+        private void CB_Food_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadFoodOnlineScoresToList();
+        }
+
+        private void CB_History_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadHistoryOnlineScoresToList();
+        }
+
+        private void CB_Movies_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadMoviesOnlineScoresToList();
+        }
+
+        private void CB_Music_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadMusicOnlineScoresToList();
+        }
+
+        private void CB_NaturalWorld_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadNaturalWorldOnlineScoresToList();
+        }
+
+        private void CB_Sport_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadSportOnlineScoresToList();
+        }
+
+        private void CB_TV_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadTVOnlineScoresToList();
+        }
+
+
+        // Can use the query to filter by topic... Select Name, Score.. etc. from QuizBuzzScores WHERE Topic EQUALS General...
     }
 }

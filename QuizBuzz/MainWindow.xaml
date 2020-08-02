@@ -7,12 +7,20 @@
         mc:Ignorable="d"
         Title="Quiz Buzz" Height="480" Width="640" Background="#FF4DA6B4" ResizeMode="CanResizeWithGrip" WindowState="Maximized">
     <Window.Resources>
-        <XmlDataProvider x:Key="ScoresData"
+        <!--<XmlDataProvider x:Key="ScoresData"
                    Source="Scores/Scores.xml"
-                   XPath="PlayerScoreBoard" />
+                   XPath="PlayerScoreBoard" />-->
+        <!--<ObjectDataProvider x:Key="OnlineScoresPool" ObjectType="List"/>-->
 
         <Style TargetType="TextBlock" x:Key="Question">
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="BlanchedAlmond"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="SmallerText">
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="Foreground" Value="BlanchedAlmond"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -100,7 +108,7 @@
         </Border>
 
         <!--START PAGE-->
-        <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
+        <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" ClipToBounds="True">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
@@ -135,48 +143,91 @@
         </Border>
 
         <!--SCORES PAGE-->
-        <Border x:Name="ScoresPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
-            <Grid>
+        <Border x:Name="ScoresPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
+            <Grid x:Name="LocalScores" Visibility="Visible">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="65"/>
                 </Grid.RowDefinitions>
-                <TextBlock Style="{StaticResource Question}" FontWeight="Bold">Scores</TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Question}" FontWeight="Bold" Grid.Column="1">Scores</TextBlock>
+                    <ComboBox Grid.Column="2">
+                        <ComboBoxItem Name="CB_All"              Content="All Categories"    Selected="All_Selected"/>
+                        <ComboBoxItem Name="CB_Food"             Content="Food"           Selected="CB_Food_Selected"       />
+                        <ComboBoxItem Name="CB_GeneralKnowledge" Content="General Knowledge"   Selected="CB_GeneralKnowledge_Selected" />
+                        <ComboBoxItem Name="CB_Geography"        Content="Geography"      Selected="CB_Geography_Selected"       />
+                        <ComboBoxItem Name="CB_History"          Content="History"     Selected="CB_History_Selected"         />
+                        <ComboBoxItem Name="CB_Movies"           Content="Movies"      Selected="CB_Movies_Selected"         />
+                        <ComboBoxItem Name="CB_Music"            Content="Music"                Selected="CB_Music_Selected" />
+                        <ComboBoxItem Name="CB_NaturalWorld"     Content="Natural World"   Selected="CB_NaturalWorld_Selected"     />
+                        <ComboBoxItem Name="CB_Science"          Content="Science"           Selected="CB_Science_Selected"   />
+                        <ComboBoxItem Name="CB_Sport"            Content="Sport"             Selected="CB_Sport_Selected"   />
+                        <ComboBoxItem Name="CB_TV"               Content="TV"    Selected="CB_TV_Selected"                />
+
+
+
+
+
+
+                    </ComboBox>
+                </Grid>
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="1">
-                        <StackPanel>
-                            <ItemsControl x:Name="ScoreBoard" ItemsSource="{Binding Source={StaticResource ScoresData}, XPath=PlayerScore}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border CornerRadius="5" BorderThickness="2" BorderBrush="Bisque" Background="Blue" MinHeight="30" Margin="5">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="50"/>
-                                                    <ColumnDefinition Width="1*"/>
-                                                    <ColumnDefinition Width="1*"/>
-                                                    <ColumnDefinition Width="1*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Image Source="{Binding XPath=Award}" Height="40"/>
-                                                <TextBlock Text="{Binding XPath=PlayerName}" Style="{StaticResource Question}" Grid.Column="1" FontWeight="Bold"/>
-                                                <StackPanel Grid.Column="2">
-                                                    <TextBlock Text="{Binding XPath=Category}" Style="{StaticResource Question}" Grid.Column="2" FontWeight="Bold"/>
-                                                    <TextBlock Text="{Binding XPath=Score}" Style="{StaticResource Question}" Grid.Column="1"/>
+                        <ItemsControl HorizontalAlignment="Stretch" Name="ScoreTemplate" MinWidth="575" ItemsSource="{Binding Path=LoadDataBinding}" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="5" BorderThickness="2" BorderBrush="Bisque" Background="Blue" MinHeight="30" Margin="7">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Source="{Binding Path=Award}" Grid.Column="0" Height="50" Margin="10 3 10 3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <TextBlock Text="{Binding Path=Name}" Style="{StaticResource Question}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <TextBlock Text="Category" Style="{StaticResource SmallerText}"/>
+                                                <TextBlock Text="{Binding Path=Topic}" Style="{StaticResource Question}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <TextBlock Text="Score" Style="{StaticResource SmallerText}"/>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Path=Score}" Style="{StaticResource Question}"/>
+                                                    <TextBlock Text=" (" Style="{StaticResource Question}"/>
+                                                    <TextBlock Text="{Binding Path=Percentage}" Style="{StaticResource Question}"/>
+                                                    <TextBlock Text="%)" Style="{StaticResource Question}"/>
                                                 </StackPanel>
-                                                <StackPanel Grid.Column="3">
-                                                    <TextBlock Text="{Binding XPath=Time}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
-                                                    <TextBlock Text="{Binding XPath=Date}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
-                                                </StackPanel>
-                                            </Grid>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <TextBlock Text="{Binding Path=Time}" Style="{StaticResource SmallerText}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding Path=Date}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </StackPanel>
                 </ScrollViewer>
                 <Button Style="{StaticResource AnswerButton}" Click="BackToGameSetup" Grid.Row="2">Back</Button>
+
             </Grid>
+
         </Border>
 
         <!--GAME OVER PAGE-->

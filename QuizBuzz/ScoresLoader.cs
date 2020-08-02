@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace QuizBuzz
 {
     public class ScoresLoader
     {
-        public List<Score> LoadScoresToList(List<Score> scoresPool)
+        public List<Score> LoadLocalScoresToList(List<Score> scoresPool)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load("Scores.xml");
@@ -73,6 +74,25 @@ namespace QuizBuzz
                 //        naturalqPool.Add(question);
                 //    }
                 //}
+            }
+            return scoresPool;
+        }
+
+        public List<Score> LoadOnlineScoresToList(List<Score> scoresPool)
+        {
+            DB db = new DB();
+            db.OpenConnection();
+            MySqlCommand mySqlCommand = new MySqlCommand("SELECT * FROM `QuizBuzzScores`", db.GetConnection());
+            using (MySqlDataReader reader = mySqlCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        Console.WriteLine("Row " + i + " :" + reader.GetValue(i));
+                    }
+                    Console.WriteLine();
+                }
             }
             return scoresPool;
         }
