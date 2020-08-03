@@ -77,7 +77,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Source="images/hex.png" Stretch="UniformToFill" Opacity="0.4"></Image>
+        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Source="images/Hex.png" Stretch="UniformToFill" Opacity="0.4"></Image>
         <!--HEADER-->
         <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Padding="10" MinWidth="100" Style="{StaticResource UI}">
             <TextBlock x:Name="GameTitle" Foreground="BlanchedAlmond" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center">QuizBuzz</TextBlock>
@@ -103,12 +103,12 @@
                 <Button Style="{StaticResource MenuButton}" Click="OptionsMenuOpen">Options</Button>
                 <Button Style="{StaticResource MenuButton}" Click="ShowScoresPageClick">Scores</Button>
                 <Button Style="{StaticResource MenuButton}" Click="AboutMenuOpen">About</Button>
-                <Button Style="{StaticResource MenuButton}" Click="Button_Click">Exit</Button>
+                <Button Style="{StaticResource MenuButton}" Click="QuitButtonClick">Exit</Button>
             </StackPanel>
         </Border>
 
         <!--START PAGE-->
-        <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
+        <Border x:Name="StartPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" ClipToBounds="True">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 20 50 20">
@@ -143,7 +143,7 @@
         </Border>
 
         <!--SCORES PAGE-->
-        <Border x:Name="ScoresPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Visible">
+        <Border x:Name="ScoresPage" Style="{StaticResource UI}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden">
             <Grid x:Name="LocalScores" Visibility="Visible">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -156,9 +156,11 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
+
                     <TextBlock Style="{StaticResource Question}" FontWeight="Bold" Grid.Column="1">Scores</TextBlock>
-                    <ComboBox Grid.Column="2">
+                    <ComboBox Grid.Column="2" Height="25" Width="150">
                         <ComboBoxItem Name="CB_All"              Content="All Categories"    Selected="All_Selected"/>
+                        <ComboBoxItem Name="CB_AllTopTen"              Content="Top 10 (All Categories)"    Selected="CB_AllTopTen_Selected"/>
                         <ComboBoxItem Name="CB_Food"             Content="Food"           Selected="CB_Food_Selected"       />
                         <ComboBoxItem Name="CB_GeneralKnowledge" Content="General Knowledge"   Selected="CB_GeneralKnowledge_Selected" />
                         <ComboBoxItem Name="CB_Geography"        Content="Geography"      Selected="CB_Geography_Selected"       />
@@ -169,12 +171,6 @@
                         <ComboBoxItem Name="CB_Science"          Content="Science"           Selected="CB_Science_Selected"   />
                         <ComboBoxItem Name="CB_Sport"            Content="Sport"             Selected="CB_Sport_Selected"   />
                         <ComboBoxItem Name="CB_TV"               Content="TV"    Selected="CB_TV_Selected"                />
-
-
-
-
-
-
                     </ComboBox>
                 </Grid>
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
@@ -182,50 +178,65 @@
                         <ItemsControl HorizontalAlignment="Stretch" Name="ScoreTemplate" MinWidth="575" ItemsSource="{Binding Path=LoadDataBinding}" >
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border CornerRadius="5" BorderThickness="2" BorderBrush="Bisque" Background="Blue" MinHeight="30" Margin="7">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="50"/>
-                                                <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="1*"/>
-                                            </Grid.ColumnDefinitions>
+                                    <Grid>
+                                        <Image Source="{Binding Path=Award}" Grid.Column="0" Height="100" Margin="10 0 10 0" HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="10"/>
+                                        <Border CornerRadius="5" BorderThickness="2" BorderBrush="Bisque" MaxHeight="60" Margin="10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="50"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                </Grid.ColumnDefinitions>
 
-                                            <Image Source="{Binding Path=Award}" Grid.Column="0" Height="50" Margin="10 3 10 3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Image Source="{Binding Path=Latest}" Grid.Column="0" Grid.ColumnSpan="2" Height="60" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center" MinHeight="60" Stretch="UniformToFill" Panel.ZIndex="6" Opacity="0.8"/>
 
-                                            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBlock Text="{Binding Path=Name}" Style="{StaticResource Question}"/>
-                                            </StackPanel>
-
-                                            <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBlock Text="Category" Style="{StaticResource SmallerText}"/>
-                                                <TextBlock Text="{Binding Path=Topic}" Style="{StaticResource Question}"/>
-                                            </StackPanel>
-
-                                            <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBlock Text="Score" Style="{StaticResource SmallerText}"/>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock Text="{Binding Path=Score}" Style="{StaticResource Question}"/>
-                                                    <TextBlock Text=" (" Style="{StaticResource Question}"/>
-                                                    <TextBlock Text="{Binding Path=Percentage}" Style="{StaticResource Question}"/>
-                                                    <TextBlock Text="%)" Style="{StaticResource Question}"/>
+                                                <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="10">
+                                                    <TextBlock Text="{Binding Path=Name}" Style="{StaticResource Question}"/>
                                                 </StackPanel>
-                                            </StackPanel>
 
-                                            <StackPanel Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBlock Text="{Binding Path=Time}" Style="{StaticResource SmallerText}" TextWrapping="Wrap"/>
-                                                <TextBlock Text="{Binding Path=Date}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
-                                            </StackPanel>
-                                        </Grid>
-                                    </Border>
+                                                <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="10">
+                                                    <TextBlock Text="Category" Style="{StaticResource SmallerText}"/>
+                                                    <TextBlock Text="{Binding Path=Topic}" Style="{StaticResource Question}"/>
+                                                </StackPanel>
+
+                                                <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="10">
+                                                    <TextBlock Text="Score" Style="{StaticResource SmallerText}"/>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding Path=Score}" Style="{StaticResource Question}"/>
+                                                        <TextBlock Text=" (" Style="{StaticResource Question}"/>
+                                                        <TextBlock Text="{Binding Path=Percentage}" Style="{StaticResource Question}"/>
+                                                        <TextBlock Text="%)" Style="{StaticResource Question}"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+
+                                                <StackPanel Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="10">
+                                                    <TextBlock Text="{Binding Path=Time}" Style="{StaticResource SmallerText}" TextWrapping="Wrap"/>
+                                                    <TextBlock Text="{Binding Path=Date}" Style="{StaticResource Question}" TextWrapping="Wrap"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </StackPanel>
                 </ScrollViewer>
                 <Button Style="{StaticResource AnswerButton}" Click="BackToGameSetup" Grid.Row="2">Back</Button>
-
+                <!--<Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="210"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="2">
+                        <Border CornerRadius="5" BorderThickness="2" BorderBrush="Bisque" MaxHeight="60" Margin="10" Grid.Column="2" MinWidth="30" MaxWidth="200">
+                    <Image Source="images/Sheen.png"  Height="60" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center" MinHeight="60" Stretch="UniformToFill" Panel.ZIndex="6" Opacity="0.8"/>
+                </Border>
+                        <TextBlock Style="{StaticResource Question}" Text=" = Last Entry"/>
+                    </StackPanel>
+                </Grid>-->
             </Grid>
 
         </Border>

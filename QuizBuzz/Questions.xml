@@ -6931,4 +6931,269 @@
     <IncorrectAnswer3>1964</IncorrectAnswer3>
     <Category>TV, General Knowledge</Category>
   </Module>
+  <Module>
+    <Question>The Olympic Games were first staged in honour of?</Question>
+    <CorrectAnswer>Zeus</CorrectAnswer>
+    <IncorrectAnswer1>Plato</IncorrectAnswer1>
+    <IncorrectAnswer2>Alexander the Great</IncorrectAnswer2>
+    <IncorrectAnswer3>Jesus</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Which Greek Goddess (of victory) has traditionally appeared on Olympic medals in the modern age?</Question>
+    <CorrectAnswer>Nike</CorrectAnswer>
+    <IncorrectAnswer1>Adidas</IncorrectAnswer1>
+    <IncorrectAnswer2>Gola</IncorrectAnswer2>
+    <IncorrectAnswer3>Puma</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Spell the 2016 Olympic Games host city Rio de…</Question>
+    <CorrectAnswer>Janeiro</CorrectAnswer>
+    <IncorrectAnswer1>Janero</IncorrectAnswer1>
+    <IncorrectAnswer2>Janiero</IncorrectAnswer2>
+    <IncorrectAnswer3>Janerio</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Which corporation is official timekeeper for all Olympic games since 1932?</Question>
+    <CorrectAnswer>Omega</CorrectAnswer>
+    <IncorrectAnswer1>Rolex</IncorrectAnswer1>
+    <IncorrectAnswer2>Seiko</IncorrectAnswer2>
+    <IncorrectAnswer3>TAG Heuer</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The Summer Olympic Games of 1916, 1940 and 1944 were all…?</Question>
+    <CorrectAnswer>Hosted by USA</CorrectAnswer>
+    <IncorrectAnswer1>Extended due to Weather</IncorrectAnswer1>
+    <IncorrectAnswer2>Boycotted by Russia</IncorrectAnswer2>
+    <IncorrectAnswer3>Cancelled</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Which of these is not one of the five Olympic rings?</Question>
+    <CorrectAnswer>Purple</CorrectAnswer>
+    <IncorrectAnswer1>Blue</IncorrectAnswer1>
+    <IncorrectAnswer2>Red</IncorrectAnswer2>
+    <IncorrectAnswer3>Green</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Modern Olympic 'gold' medals are predominantly made of what?</Question>
+    <CorrectAnswer>Silver</CorrectAnswer>
+    <IncorrectAnswer1>Gold</IncorrectAnswer1>
+    <IncorrectAnswer2>Brass</IncorrectAnswer2>
+    <IncorrectAnswer3>Bronze</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Prior to Brazil (Rio 2016), how many southern hemisphere nations have hosted the Summer Olympics?</Question>
+    <CorrectAnswer></CorrectAnswer>
+    <IncorrectAnswer1></IncorrectAnswer1>
+    <IncorrectAnswer2></IncorrectAnswer2>
+    <IncorrectAnswer3></IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The two official languages of the IOC for Olympic communications/announcements are English and…?</Question>
+    <CorrectAnswer>French</CorrectAnswer>
+    <IncorrectAnswer1>German</IncorrectAnswer1>
+    <IncorrectAnswer2>Spanish</IncorrectAnswer2>
+    <IncorrectAnswer3>Greek</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The first Olympic Games to sell 100% of tickets was?</Question>
+    <CorrectAnswer>London 2012</CorrectAnswer>
+    <IncorrectAnswer1>Beijing 2008</IncorrectAnswer1>
+    <IncorrectAnswer2>Athens 2004</IncorrectAnswer2>
+    <IncorrectAnswer3>Sydney 2000</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The IOC stipulates, due to "...the unfortunate demise of several (What?) sitting on the edge of the Olympic cauldron at the Opening Ceremony of the 1988 Games in Seoul..." that these creatures are used only symbolically in opening ceremonies?</Question>
+    <CorrectAnswer>Doves</CorrectAnswer>
+    <IncorrectAnswer1>Butterflies</IncorrectAnswer1>
+    <IncorrectAnswer2>Eagles</IncorrectAnswer2>
+    <IncorrectAnswer3>Fireflies</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The word gymnasium derives from Ancient Greek 'gymnos' referring to what condition of competitors/students?</Question>
+    <CorrectAnswer>Naked</CorrectAnswer>
+    <IncorrectAnswer1>Strong</IncorrectAnswer1>
+    <IncorrectAnswer2>Beautiful</IncorrectAnswer2>
+    <IncorrectAnswer3>Fast</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The Latin Olympic motto 'Citius, Altius, Fortius' means?</Question>
+    <CorrectAnswer>Swifter, Higher, Stronger</CorrectAnswer>
+    <IncorrectAnswer1>Harder, Better, Faster</IncorrectAnswer1>
+    <IncorrectAnswer2>Fitter, Happier, More Productive</IncorrectAnswer2>
+    <IncorrectAnswer3>Live, Laugh, Love</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The only nation to win at least one gold medal at every Summer Olympic Games in the modern era (since 1896) is?</Question>
+    <CorrectAnswer>Britain</CorrectAnswer>
+    <IncorrectAnswer1>USA</IncorrectAnswer1>
+    <IncorrectAnswer2>Russia</IncorrectAnswer2>
+    <IncorrectAnswer3>Australia</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The Olympic Games symbol commemorates the theft of (What?) by Prometheus from Zeus?</Question>
+    <CorrectAnswer>Fire</CorrectAnswer>
+    <IncorrectAnswer1>Rings</IncorrectAnswer1>
+    <IncorrectAnswer2>A Flag</IncorrectAnswer2>
+    <IncorrectAnswer3>Olives</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Originally the Olympic Games were held every four years because of what?</Question>
+    <CorrectAnswer>Other Games</CorrectAnswer>
+    <IncorrectAnswer1>Superstition</IncorrectAnswer1>
+    <IncorrectAnswer2>Religious Pilgrimages</IncorrectAnswer2>
+    <IncorrectAnswer3>Drought</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>What is a 'Kotinos'? It was given as the winner's award at the early Olympic Games (and repeated specially at the Athens 2004 Games)</Question>
+    <CorrectAnswer>Olive Wreath</CorrectAnswer>
+    <IncorrectAnswer1>Wooden Medal</IncorrectAnswer1>
+    <IncorrectAnswer2>Chariot</IncorrectAnswer2>
+    <IncorrectAnswer3>A Jar of Olive Oil</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The 1980 Olympics gold and silver medalists in the Coxless Pairs Rowing were all…?</Question>
+    <CorrectAnswer>Identical Twins</CorrectAnswer>
+    <IncorrectAnswer1>Deaf</IncorrectAnswer1>
+    <IncorrectAnswer2>Disqualified</IncorrectAnswer2>
+    <IncorrectAnswer3>Under 16</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Which one of these is not among the four cities to have bid to host both Summer and Winter Olympic Games?</Question>
+    <CorrectAnswer>Madrid</CorrectAnswer>
+    <IncorrectAnswer1>Munich</IncorrectAnswer1>
+    <IncorrectAnswer2>Minneapolis</IncorrectAnswer2>
+    <IncorrectAnswer3>Montreal</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Sailing (49er class) and Equestrian are the only two Olympic events (as at 2016) in which men and women can...?</Question>
+    <CorrectAnswer>Compete Against Each Other</CorrectAnswer>
+    <IncorrectAnswer1>Listen To Personal Stereos</IncorrectAnswer1>
+    <IncorrectAnswer2>Take Banned Drugs (for motion sickness)</IncorrectAnswer2>
+    <IncorrectAnswer3>Wear Watches</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Name the only city to have hosted the modern era Olympic Games three times (as far as 2020)?</Question>
+    <CorrectAnswer>London</CorrectAnswer>
+    <IncorrectAnswer1>Athens</IncorrectAnswer1>
+    <IncorrectAnswer2>Berlin</IncorrectAnswer2>
+    <IncorrectAnswer3>Los Angeles</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The Olympic Games were named after Olympia, a (What?) in Ancient Greece?</Question>
+    <CorrectAnswer>Sanctuary</CorrectAnswer>
+    <IncorrectAnswer1>Mountain</IncorrectAnswer1>
+    <IncorrectAnswer2>Goddess</IncorrectAnswer2>
+    <IncorrectAnswer3>Exhibition Centre</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>In the early Olympics, a boxer would automatically became winner if he did what?</Question>
+    <CorrectAnswer>Died</CorrectAnswer>
+    <IncorrectAnswer1>Bled</IncorrectAnswer1>
+    <IncorrectAnswer2>Fainted</IncorrectAnswer2>
+    <IncorrectAnswer3>Cried</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>In modern Olympic Games which athletes commonly do not take part in the opening parade due to competition early the next day?</Question>
+    <CorrectAnswer>Swimmers</CorrectAnswer>
+    <IncorrectAnswer1>Marathon Runners</IncorrectAnswer1>
+    <IncorrectAnswer2>Triathlon</IncorrectAnswer2>
+    <IncorrectAnswer3>Wrestlers</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The first venue for the 'modern' Olympic games revived in 1896 by French educator Baron de Coubertin (Pierre de Fredi), after being banned by the Romans in c.AD395, was?</Question>
+    <CorrectAnswer>Athens</CorrectAnswer>
+    <IncorrectAnswer1>London</IncorrectAnswer1>
+    <IncorrectAnswer2>Paris</IncorrectAnswer2>
+    <IncorrectAnswer3>Rome</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The Winter Olympics, held the same years as Summer Olympic Games since 1924, were moved to be midway between Summer Games after what year?</Question>
+    <CorrectAnswer>1992</CorrectAnswer>
+    <IncorrectAnswer1>1944</IncorrectAnswer1>
+    <IncorrectAnswer2>1964</IncorrectAnswer2>
+    <IncorrectAnswer3>2008</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The marathon's odd distance was established in the 1908 Olympics by the measurement from (Where?) to the finish line so that the Ruler's children could witness the start?</Question>
+    <CorrectAnswer>Windsor Castle</CorrectAnswer>
+    <IncorrectAnswer1>Eiffel Tower</IncorrectAnswer1>
+    <IncorrectAnswer2>Brandenburg Gate</IncorrectAnswer2>
+    <IncorrectAnswer3>The Colosseum</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Ethiopian Abebe Bikila won the marathon gold medal at the 1960 Rome Olympics while…?</Question>
+    <CorrectAnswer>Barefoot</CorrectAnswer>
+    <IncorrectAnswer1>Smoking</IncorrectAnswer1>
+    <IncorrectAnswer2>Blind</IncorrectAnswer2>
+    <IncorrectAnswer3>Naked</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>The 2016 Rio Olympic Games emblem of three joined humanlike forms was shaped on Rio landmark 'Pão de Açúcar', also known as…?</Question>
+    <CorrectAnswer>Sugarloaf Mountain</CorrectAnswer>
+    <IncorrectAnswer1>Pancake Mountain</IncorrectAnswer1>
+    <IncorrectAnswer2>Panettone Mountain</IncorrectAnswer2>
+    <IncorrectAnswer3>Muffin Mountain</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Which black sprinter/long-jumper won four gold medals at the 1936 Olympics, to the embarrassment of the Nazi hosts?</Question>
+    <CorrectAnswer>Jesse Owens</CorrectAnswer>
+    <IncorrectAnswer1>Linford Christie</IncorrectAnswer1>
+    <IncorrectAnswer2>Roger Bannister</IncorrectAnswer2>
+    <IncorrectAnswer3>Emil Zatopek</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Which nation traditionally leads the Olympics Games Opening Ceremony Parade?</Question>
+    <CorrectAnswer>The Host Nation</CorrectAnswer>
+    <IncorrectAnswer1>The Previous Host Nation</IncorrectAnswer1>
+    <IncorrectAnswer2>The Next Host Nation</IncorrectAnswer2>
+    <IncorrectAnswer3>Greece</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>What were Waldi at Munich 1972, Wenlock at London 2012, and Vinicius at Rio 2016?</Question>
+    <CorrectAnswer>Mascots</CorrectAnswer>
+    <IncorrectAnswer1>Water Sponsors</IncorrectAnswer1>
+    <IncorrectAnswer2>Olympic Committee President</IncorrectAnswer2>
+    <IncorrectAnswer3>Stadium Names</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+  <Module>
+    <Question>Which of these accounted for over 90% of Rio 2016's Olympic $4bn revenues?</Question>
+    <CorrectAnswer>Broadcast and Sponsorship</CorrectAnswer>
+    <IncorrectAnswer1>Tickets and Food</IncorrectAnswer1>
+    <IncorrectAnswer2>Tickets and Sponsorship</IncorrectAnswer2>
+    <IncorrectAnswer3>Food and Broadcast</IncorrectAnswer3>
+    <Category>General Knowledge, Sport</Category>
+  </Module>
+
 </QuestionBlocks>

@@ -80,16 +80,16 @@ namespace QuizBuzz
             MusicLoop();
             InitializeComponent();
             questionManager.LoadQuestionsToList(
-                gnQuestionPool,
-                musicQuestionPool,
-                movieQuestionPool,
-                geographyQuestionPool,
-                scienceQuestionPool,
-                historyQuestionPool,
-                sportQuestionPool,
-                tvQuestionPool,
-                naturalWorldQuestionPool,
-                foodQuestionPool);
+            gnQuestionPool,
+            musicQuestionPool,
+            movieQuestionPool,
+            geographyQuestionPool,
+            scienceQuestionPool,
+            historyQuestionPool,
+            sportQuestionPool,
+            tvQuestionPool,
+            naturalWorldQuestionPool,
+            foodQuestionPool);
             SetVolumeToOne();
             SetCategoryCounts();
             LoadAllOnlineScoresToList();
@@ -282,7 +282,7 @@ namespace QuizBuzz
             }
             else
             {
-                ResetGame();
+                DisplayGameSetup();
             }
         }
 
@@ -624,8 +624,8 @@ namespace QuizBuzz
                 DataTable dataTable = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-                MySqlCommand mySqlCommand = new MySqlCommand(@"INSERT INTO `QuizBuzzScores`(`Name`, `Score`, `Topic`, `Percentage`, `Date`, `Time`, `Award`)
-                  VALUES (@Name, @Score, @Topic, @Percentage, @Date, @Time, @Award)", dB.GetConnection());
+                MySqlCommand mySqlCommand = new MySqlCommand(@"INSERT INTO `QuizBuzzScores`(`Name`, `Score`, `Topic`, `Percentage`, `Date`, `Time`, `Award`, `Latest`)
+    VALUES (@Name, @Score, @Topic, @Percentage, @Date, @Time, @Award, @Latest)", dB.GetConnection());
 
                 mySqlCommand.Parameters.Add("@Name", MySqlDbType.VarChar).Value = UsernameBox.Text;
                 mySqlCommand.Parameters.Add("@Score", MySqlDbType.Int32).Value = gm.Score;
@@ -634,22 +634,53 @@ namespace QuizBuzz
                 mySqlCommand.Parameters.Add("@Date", MySqlDbType.VarChar).Value = DateTime.Now.ToString("dd/MM/yyyy");
                 mySqlCommand.Parameters.Add("@Time", MySqlDbType.VarChar).Value = DateTime.Now.ToString("hh:mm tt");
                 mySqlCommand.Parameters.Add("@Award", MySqlDbType.VarChar).Value = sc.Award;
+                mySqlCommand.Parameters.Add("@Latest", MySqlDbType.VarChar).Value = "images/Sheen.png";
 
                 adapter.SelectCommand = mySqlCommand;
 
                 adapter.Fill(dataTable);
-                MessageBox.Show("Score saved!");
             }
             catch (Exception)
             {
                 MessageBox.Show("This operation failed.");
-                throw;
+                 throw;
             }
             finally
             {
                 LoadAllOnlineScoresToList();
                 ShowScoresPage();
             }
+
+            //            DB dB = new DB();
+            //            DataTable dataTable = new DataTable();
+            //            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            //            MySqlCommand mySqlCommand = new MySqlCommand(@"INSERT INTO `QuizBuzzScores`(`Name`, `Score`, `Topic`, `Percentage`, `Date`, `Time`, `Award`)
+            //VALUES (@Name, @Score, @Topic, @Percentage, @Date, @Time, @Award)", dB.GetConnection());
+
+            //            mySqlCommand.Parameters.Add("@Name", MySqlDbType.VarChar).Value = UsernameBox.Text;
+            //            mySqlCommand.Parameters.Add("@Score", MySqlDbType.Int32).Value = gm.Score;
+            //            mySqlCommand.Parameters.Add("@Topic", MySqlDbType.VarChar).Value = gm.Category;
+            //            mySqlCommand.Parameters.Add("@Percentage", MySqlDbType.VarChar).Value = gm.Percentage;
+            //            mySqlCommand.Parameters.Add("@Date", MySqlDbType.VarChar).Value = DateTime.Now.ToString("dd/MM/yyyy");
+            //            mySqlCommand.Parameters.Add("@Time", MySqlDbType.VarChar).Value = DateTime.Now.ToString("hh:mm tt");
+            //            mySqlCommand.Parameters.Add("@Award", MySqlDbType.VarChar).Value = sc.Award;
+
+            //            adapter.SelectCommand = mySqlCommand;
+
+            //            adapter.Fill(dataTable);
+            //            MessageBox.Show("Score saved!");
+            //        }
+            //        catch (Exception)
+            //        {
+            //            MessageBox.Show("This operation failed.");
+            //            throw;
+            //        }
+            //        finally
+            //        {
+            //            LoadAllOnlineScoresToList();
+            //            ShowScoresPage();
+            //        }
         }
 
         private void ShowScoresPageClick(object sender, RoutedEventArgs e)
@@ -668,7 +699,7 @@ namespace QuizBuzz
             AboutPage.Visibility = Visibility.Hidden;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void QuitButtonClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult confirmShutdown = MessageBox.Show("Are you sure you want to exit the game?", "Confirm exit", MessageBoxButton.YesNo);
 
@@ -834,7 +865,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores ORDER BY Percentage DESC", conn.GetConnection());
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "LoadDataBinding");
@@ -862,7 +893,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Food\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"Food\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -886,7 +917,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Science\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"Science\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -910,7 +941,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"General Knowledge\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"General Knowledge\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -933,7 +964,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Geography\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"Geography\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -957,7 +988,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"History\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"History\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -981,7 +1012,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Movies\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"Movies\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -1005,7 +1036,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Music\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"Music\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -1029,7 +1060,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Natural World\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"Natural World\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -1053,7 +1084,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"Sport\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"Sport\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -1076,7 +1107,7 @@ namespace QuizBuzz
             try
             {
                 conn.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award from QuizBuzzScores WHERE Topic = \"TV\" ORDER BY Percentage DESC", conn.GetConnection());
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores WHERE Topic = \"TV\" ORDER BY Percentage DESC", conn.GetConnection());
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -1147,6 +1178,42 @@ namespace QuizBuzz
         {
             LoadTVOnlineScoresToList();
         }
+
+        private void CB_AllTopTen_Selected(object sender, RoutedEventArgs e)
+        {
+            LoadTop10ScoresForAllCategories();
+        }
+
+        public void LoadTop10ScoresForAllCategories()
+        {
+            DB conn = new DB();
+            try
+            {
+                conn.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand("Select Name, Score, Topic, Percentage, Date, Time, Award, Latest from QuizBuzzScores ORDER BY Percentage DESC LIMIT 10", conn.GetConnection());
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adp.Fill(ds, "LoadDataBinding");
+                ScoreTemplate.DataContext = ds;
+
+
+                // Figure out how to mark latest entry with a marker, and remove the marker from the previous entry
+
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        // Natural World
+        // Science
+        // Sports
 
 
         // Can use the query to filter by topic... Select Name, Score.. etc. from QuizBuzzScores WHERE Topic EQUALS General...
